@@ -1,0 +1,3 @@
+class desktop::games {
+	# TODO
+}
