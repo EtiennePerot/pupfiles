@@ -1,3 +1,3 @@
-class base::shutils {
+class console::shutils {
 	package {'ack':}
 }
