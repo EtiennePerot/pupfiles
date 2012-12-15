@@ -1,4 +1,5 @@
 class desktop::environment::kde {
+	package {'kdebase-workspace':}
 	package {'kde-meta-kdeaccessibility':}
 	package {'kde-meta-kdeadmin':}
 	package {'kde-meta-kdeartwork':}
@@ -15,4 +16,9 @@ class desktop::environment::kde {
 	package {'kde-meta-kdeutils':}
 	package {'kde-meta-kdewebdev':}
 	package {'kde-wallpapers':}
+	service {'kdm':
+		enable => true,
+		provider => 'systemd',
+		require => Package['kdebase-workspace']
+	}
 }

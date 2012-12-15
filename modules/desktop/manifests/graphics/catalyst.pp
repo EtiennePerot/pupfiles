@@ -4,5 +4,8 @@ class desktop::graphics::catalyst {
 		require => Class['base::kernel::dkms']
 	}
 	package {'catalyst-utils':}
-	package {'lib32-catalyst-utils':}
+	include base::packaging::multilib
+	package {'lib32-catalyst-utils':
+		require => Class['base::packaging::multilib']
+	}
 }

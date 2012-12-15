@@ -1,0 +1,25 @@
+directory = /home/rtorrent/mnt/torrents
+
+http_capath = /etc/ssl/certs
+
+encoding_list = UTF-8
+
+scgi_port = localhost:5000
+
+port_range = 55000-56000
+
+port_random = no
+
+use_udp_trackers = yes
+dht = disable
+peer_exchange = no
+encryption = allow_incoming,try_outgoing,require,require_RC4
+
+schedule = watch_directory,5,5,load_start=/home/rtorrent/mnt/watch/*.torrent
+session = /home/rtorrent/mnt/session
+
+method.insert = pyro.extended, value|const, 0
+method.insert = pyro.bin_dir, string|const,
+method.insert = pyro.rtorrent_rc, string|const|private, "$cat=~/.pyroscope/rtorrent-,\"$system.client_version=\",.rc.default"
+import = $pyro.rtorrent_rc=
+schedule = pyro_watchdog,30,300,"pyro.watchdog=~/.pyroscope,"

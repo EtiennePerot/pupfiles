@@ -1,0 +1,6 @@
+alias ssh='autossh -M $(($RANDOM%10000+30000))'
+alias cp='cp -r'
+alias scp='scp -r'
+alias mkdir='mkdir -p'
+alias rsync='rsync -ru --progress'
+alias man="TERMINFO=~/.terminfo/ LESS=C TERM=mostlike PAGER=most man"

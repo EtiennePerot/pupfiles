@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+
+gpgkey="https://perot.me/pgp.asc"
+fingerprint="`gpg --export etienne@perot.me | gpg --with-fingerprint | grep "Key fingerprint"`"
+keyid="${fingerprint:${#fingerprint}-9:9}"
+sigdate="`date +'%Y-%m-%d %H:%M:%S'`"
+echo "Etienne Perot - https://perot.me/"
+echo "Signed using $gpgkey ($keyid) on $sigdate."

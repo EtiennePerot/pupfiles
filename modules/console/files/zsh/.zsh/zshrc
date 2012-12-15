@@ -1,0 +1,41 @@
+# zsh configuration file
+
+ZSHC="$HOME/.zsh"
+
+COMPLETION_WAITING_DOTS=true
+plugins=(ant arch compleat git github gpg-agent kate lol mercurial nyan pip python svn wakeonlan)
+setopt completealiases
+
+ZSH="$ZSHC/oh-my-zsh"
+source "$ZSH/oh-my-zsh.sh"
+source "$ZSHC/zsh_theme"
+
+source /usr/share/doc/pkgfile/command-not-found.zsh
+
+if [ -f "$ZSHC/zsh_nocorrect" ]; then
+	while read -r COMMAND; do
+		alias $COMMAND="nocorrect $COMMAND"
+	done < "$ZSHC/zsh_nocorrect"
+fi
+
+if [ -f "$ZSHC/zsh_sudo" ]; then
+	while read -r COMMAND; do
+		alias $COMMAND="sudo $COMMAND"
+	done < "$ZSHC/zsh_sudo"
+fi
+
+if [ -f "$ZSHC/zsh_aliases" ]; then
+	source "$ZSHC/zsh_aliases"
+fi
+
+# Per-directory environment files
+cd() {
+	builtin cd "$@"
+	if [ -x .env ]; then
+		source .env
+	fi
+}
+
+export EDITOR=nano # Don't judge me!
+export PATH="$HOME/dev/dotfiles/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
+export GPGKEY=5CFC3B88974EE250

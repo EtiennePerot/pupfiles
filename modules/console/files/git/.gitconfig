@@ -1,0 +1,30 @@
+[user]
+	email = etienne@perot.me
+	name = Etienne Perot
+	signingkey = 974EE250
+[url "git://anongit.kde.org/"]
+	insteadOf = kde:
+[url "git@git.kde.org:"]
+	pushInsteadOf = kde:
+[color]
+	branch = auto
+	diff = auto
+	log = auto
+	interactive = auto
+	status = auto
+	pager = true
+	ui = auto
+[core]
+	pager = most
+[alias]
+	rclone = clone --recursive
+	a = add
+	d = diff --minimal --no-prefix --patch-with-stat
+	s = status -s
+	c = commit
+	ds = diff --minimal --no-prefix --patch-with-stat --staged
+	svnpush = "!f(){ git push; git fetch; git rebase; };f"
+[merge]
+	log = true
+[apply]
+	whitespace = fix
