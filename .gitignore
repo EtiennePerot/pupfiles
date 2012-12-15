@@ -1,2 +1,5 @@
 this.manifest
 private
+encrypted-private
+private.key
+.directory
