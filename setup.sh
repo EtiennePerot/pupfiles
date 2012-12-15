@@ -17,6 +17,10 @@ if [ -d "$scriptDir/manifests" ]; then
 	pupDir="$scriptDir"
 fi
 
+if [ -n "$PUP_JUST_SET_VARIABLES" ]; then
+	return
+fi
+
 if ! pacman -Q puppet &> /dev/null; then
 	if ! grep '\[archlinuxfr\]' /etc/pacman.conf &> /dev/null; then
 		echo >> /etc/pacman.conf # Empty line
@@ -70,10 +74,12 @@ if [ ! -d encrypted-private ]; then
 	done
 else
 	cd encrypted-private
+	export GIT_SSH="$pupDir/git-ssh-private.sh"
 	if ! git pull &> /dev/null; then
 		echo 'Could not update encrypted-private repository.'
 		exit 1
 	fi
+	unset GIT_SSH
 	cd ..
 fi
 mkdir -p private
