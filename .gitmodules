@@ -1,3 +1,6 @@
 [submodule "modules/console/files/zsh/.zsh/oh-my-zsh"]
 	path = modules/console/files/zsh/.zsh/oh-my-zsh
 	url = git://github.com/robbyrussell/oh-my-zsh.git
+[submodule "modules/ini_setting"]
+	path = modules/ini_setting
+	url = git://perot.me/puppetlabs-inifile
