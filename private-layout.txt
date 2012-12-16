@@ -1,0 +1,6 @@
+private/modules/private/files/desktop/apps/kmail2/kmail2rc
+private/modules/private/manifests/init.pp
+private/modules/private/templates/base/etienne/password
+private/modules/private/templates/base/root/password
+private/ssh.key
+private/ssh.key.pub

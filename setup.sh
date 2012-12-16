@@ -132,4 +132,4 @@ while [ ! -f "manifests/$chosenManifest.pp" ]; do
 	echo "$chosenManifest" > this.manifest
 done
 modulePath="$pupDir/private/modules:$pupDir/modules:`puppet apply --configprint modulepath`"
-puppet apply --modulepath "$modulePath" "manifests/$chosenManifest.pp"
+exec puppet apply --modulepath "$modulePath" "manifests/$chosenManifest.pp"
