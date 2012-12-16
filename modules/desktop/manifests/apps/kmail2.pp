@@ -8,6 +8,7 @@ class desktop::apps::kmail2 {
 	kde_rc::ini {'kmail2rc|General|SystemTrayEnabled=true':}
 	kde_rc::ini {'kmail2rc|General|first-start=false':}
 	kde_rc::ini {'kmail2rc|General|mime-header-count=2':}
+	kde_rc::ini {'kmail2rc|Geometry|readerWindowMode=right':}
 	kde_rc::ini {'kmail2rc|MessageListView::Colors|ImportantMessageColor=0,127,0':}
 	kde_rc::ini {'kmail2rc|MessageListView::Colors|TodoMessageColor=0,152,0':}
 	kde_rc::ini {'kmail2rc|MessageListView::Colors|UnreadMessageColor=84,164,255':}
@@ -15,6 +16,17 @@ class desktop::apps::kmail2 {
 	kde_rc::ini {'kmail2rc|MessageListView::StorageModelSortOrder|GlobalSortOrderGroupSorting=SortGroupsByDateTime':}
 	kde_rc::ini {'kmail2rc|MessageListView::StorageModelSortOrder|GlobalSortOrderMessageSortDirection=Descending':}
 	kde_rc::ini {'kmail2rc|MessageListView::StorageModelSortOrder|GlobalSortOrderMessageSorting=SortMessagesByDateTime':}
+	kde_rc::ini {'kmail2rc|MessageListView::Themes|Count=3':}
+	kde_rc::ini {'kmail2rc|MessageListView::Themes|Set0':
+		value => template('desktop/apps/kmail2/messagelistview_themes_set0')
+	}
+	kde_rc::ini {'kmail2rc|MessageListView::Themes|Set1':
+		value => template('desktop/apps/kmail2/messagelistview_themes_set1')
+	}
+	kde_rc::ini {'kmail2rc|MessageListView::Themes|Set2':
+		value => template('desktop/apps/kmail2/messagelistview_themes_set2')
+	}
+	kde_rc::ini {'kmail2rc|MessageListView::StorageModelThemes|DefaultSet=1355619730-11':}
 	kde_rc::ini {'kmail2rc|Composer|crypto-show-encryption-result=false':}
 	kde_rc::ini {'kmail2rc|Composer|crypto-warning-unencrypted=true':}
 	kde_rc::ini {'kmail2rc|Composer|crypto-warning-unsigned=true':}

@@ -11,6 +11,16 @@ define kde_rc::ini (
 			$actual_setting = $3
 			$actual_value = $4
 		}
+		/^([^|]+)\|([^|]+)\|([^=]+)$/: {
+			$actual_file = $1
+			$actual_section = $2
+			$actual_setting = $3
+			if $value == false {
+				fail('Value not specified.')
+			} else {
+				$actual_value = $value
+			}
+		}
 		default: {
 			if $file == false {
 				fail('File not specified.')
