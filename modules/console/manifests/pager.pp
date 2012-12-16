@@ -3,7 +3,7 @@ class console::pager {
 	enduser_file {'.terminfo':
 		ensure => directory,
 		recurse => true,
-		source => 'puppet:///modules/console/pager/.terminfo',
+		source => 'console/pager',
 		require => Package['most']
 	}
 }

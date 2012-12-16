@@ -16,9 +16,7 @@ class desktop::environment::kde {
 	package {'kde-meta-kdeutils':}
 	package {'kde-meta-kdewebdev':}
 	package {'kde-wallpapers':}
-	service {'kdm':
-		enable => true,
-		provider => 'systemd',
+	systemd_service {'kdm':
 		require => Package['kdebase-workspace']
 	}
 }
