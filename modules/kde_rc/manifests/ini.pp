@@ -1,4 +1,5 @@
 define kde_rc::ini (
+	$fullpath = false,
 	$file = false,
 	$section = false,
 	$setting = false,
@@ -6,15 +7,43 @@ define kde_rc::ini (
 ) {
 	case $title {
 		/^([^|]+)\|([^|]+)\|([^=]+)=(.*)$/: {
-			$actual_file = $1
-			$actual_section = $2
-			$actual_setting = $3
-			$actual_value = $4
+			if $file != false {
+				$actual_file = $file
+			} else {
+				$actual_file = $1
+			}
+			if $section != false {
+				$actual_section = $section
+			} else {
+				$actual_section = $2
+			}
+			if $setting != false {
+				$actual_setting = $setting
+			} else {
+				$actual_setting = $3
+			}
+			if $value != false {
+				$actual_value = $value
+			} else {
+				$actual_value = $4
+			}
 		}
 		/^([^|]+)\|([^|]+)\|([^=]+)$/: {
-			$actual_file = $1
-			$actual_section = $2
-			$actual_setting = $3
+			if $file != false {
+				$actual_file = $file
+			} else {
+				$actual_file = $1
+			}
+			if $section != false {
+				$actual_section = $section
+			} else {
+				$actual_section = $2
+			}
+			if $setting != false {
+				$actual_setting = $setting
+			} else {
+				$actual_setting = $3
+			}
 			if $value == false {
 				fail('Value not specified.')
 			} else {
@@ -44,27 +73,33 @@ define kde_rc::ini (
 			}
 		}
 	}
-	if ! defined(Kde_rc[$actual_file]) {
-		kde_rc {$actual_file:
+	if $fullpath == false {
+		$final_file = ".kde4/share/config/$actual_file"
+	} else {
+		$final_file = $fullpath
+	}
+	if ! defined(Kde_rc[$final_file]) {
+		kde_rc {$final_file:
+			fullpath => $final_file,
 			ensure => present,
 			content => '',
 			replace => false
 		}
 	}
-	ini_setting {"/home/etienne/.kde4/share/config/$actual_file/$actual_section/$actual_setting":
-		path => "/home/etienne/.kde4/share/config/$actual_file",
+	ini_setting {"/home/etienne/$final_file/$actual_section/$actual_setting":
+		path => "/home/etienne/$final_file",
 		section => $actual_section,
 		setting => $actual_setting,
 		value => $actual_value,
 		key_val_separator => '=',
-		require => Kde_rc[$actual_file]
+		require => Kde_rc[$final_file]
 	}
-	ini_setting {"/root/.kde4/share/config/$actual_file/$actual_section/$actual_setting":
-		path => "/root/.kde4/share/config/$actual_file",
+	ini_setting {"/root/$final_file/$actual_section/$actual_setting":
+		path => "/root/$final_file",
 		section => $actual_section,
 		setting => $actual_setting,
 		value => $actual_value,
 		key_val_separator => '=',
-		require => Kde_rc[$actual_file]
+		require => Kde_rc[$final_file]
 	}
 }

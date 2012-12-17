@@ -24,14 +24,25 @@ define enduser_file::single (
 		}
 	}
 	if $content == false {
-		file {$name:
-			ensure => $ensure,
-			mode => $mode,
-			owner => $owner,
-			group => $group,
-			source => $multisource,
-			recurse => $recurse,
-			replace => $replace
+		if $ensure == directory and $source == false {
+			file {$name:
+				ensure => directory,
+				mode => $mode,
+				owner => $owner,
+				group => $group,
+				recurse => $recurse,
+				replace => $replace
+			}
+		} else {
+			file {$name:
+				ensure => $ensure,
+				mode => $mode,
+				owner => $owner,
+				group => $group,
+				source => $multisource,
+				recurse => $recurse,
+				replace => $replace
+			}
 		}
 	} else {
 		file {$name:
