@@ -1,6 +1,7 @@
 class console (
 	$rtorrent = false
 ) {
+	include console::ssh
 	include console::screen
 	include console::git
 	include console::pager

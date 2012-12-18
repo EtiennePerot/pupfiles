@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+<%= scope.function_template(['gpg_key/get_fingerprint.sh.erb']) %>
+
+exec gpg --batch --with-colons --list-secret-keys --fingerprint "$fingerprint" &> /dev/null

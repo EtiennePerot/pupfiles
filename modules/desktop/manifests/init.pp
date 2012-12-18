@@ -2,6 +2,7 @@ class desktop (
 	$graphics_drivers = 'nvidia',
 	$desktop_environment = 'kde',
 	$apps = true,
+	$fonts = true,
 	$games = false
 ) {
 	include desktop::xorg
@@ -23,6 +24,9 @@ class desktop (
 	}
 	if $apps {
 		include desktop::apps
+	}
+	if $fonts {
+		include desktop::fonts
 	}
 	if $games {
 		include desktop::games

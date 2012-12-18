@@ -17,10 +17,10 @@ define enduser_file::single (
 			$multisource = [$source]
 		}
 		default: {
-		$multisource = [
-			"puppet:///modules/private/$source/$filename",
-			"puppet:///modules/$source/$filename"
-		]
+			$multisource = [
+				"puppet:///modules/private/$source/$filename",
+				"puppet:///modules/$source/$filename"
+			]
 		}
 	}
 	if $content == false {

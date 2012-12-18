@@ -1,16 +1,19 @@
 # zsh configuration file
 
 ZSHC="$HOME/.zsh"
+ZSH_CUSTOM="$ZSHC/custom"
 
 COMPLETION_WAITING_DOTS=true
-plugins=(ant arch compleat git github gpg-agent kate lol mercurial nyan pip python svn wakeonlan)
+plugins=(ant arch compleat git github kate lol mercurial nyan pip python ssh-gpg-monkeysphere-agents svn wakeonlan)
 setopt completealiases
 
 ZSH="$ZSHC/oh-my-zsh"
 source "$ZSH/oh-my-zsh.sh"
 source "$ZSHC/zsh_theme"
 
-source /usr/share/doc/pkgfile/command-not-found.zsh
+if [ -f /usr/share/doc/pkgfile/command-not-found.zsh ]; then
+	source /usr/share/doc/pkgfile/command-not-found.zsh
+fi
 
 if [ -f "$ZSHC/zsh_nocorrect" ]; then
 	while read -r COMMAND; do

@@ -1,0 +1,12 @@
+tmpDir="/tmp/gnupg-$(whoami)-temp${RANDOM}-dir"
+rm -rf "$tmpDir" # Delete if there was anything
+mkdir -p "$tmpDir"
+chmod 700 "$tmpDir"
+echo "$1" | gpg --homedir="$tmpDir" --batch --import 2> /dev/null
+returnCode1="$?"
+fingerprint=$(gpg --homedir="$tmpDir" --batch --with-colons --list-secret-keys --fingerprint 2> /dev/null | grep -P '^fpr:' | cut -d ':' -f 10)
+returnCode2="$?"
+rm -rf "$tmpDir"
+if [ "$returnCode1" -ne 0 -o "$returnCode2" -ne 0 ]; then
+	exit 1
+fi

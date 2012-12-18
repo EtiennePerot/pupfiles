@@ -1,6 +1,15 @@
-private/modules/private/files/desktop/apps/kmail2/kmail2rc
+private/modules/private/files/console/ssh/.monkeysphere/identities/etienne (at) perot (dot) me
+private/modules/private/files/desktop/apps/kmail2/emaildefaults
+private/modules/private/files/desktop/apps/kmail2/emailidentities
+private/modules/private/files/desktop/fonts/stencil/Stencil.ttf
+private/modules/private/files/desktop/fonts/tf2/TF2.ttf
+private/modules/private/files/desktop/fonts/tf2/TF2Build.ttf
+private/modules/private/files/desktop/fonts/tf2/TF2secondary.ttf
+private/modules/private/manifests/console/gpg.pp
 private/modules/private/manifests/init.pp
 private/modules/private/templates/base/etienne/password
 private/modules/private/templates/base/root/password
+private/modules/private/templates/console/gpg/*.asc
+private/modules/private/templates/console/ssh/host_aliases.erb
 private/ssh.key
 private/ssh.key.pub

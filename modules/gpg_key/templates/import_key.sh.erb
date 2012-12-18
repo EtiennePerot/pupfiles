@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+
+<%= scope.function_template(['gpg_key/get_fingerprint.sh.erb']) %>
+
+echo "$1" | gpg --batch --import &> /dev/null
+returnCode="$?"
+if [ "$returnCode" -ne 0 ]; then
+	exit "$returnCode"
+fi
+echo "$fingerprint:6:" | gpg --batch --import-ownertrust &> /dev/null
+exit "$?"

@@ -1,0 +1,20 @@
+Host *
+ForwardX11 yes
+ForwardX11Trusted yes
+Protocol 2
+PermitLocalCommand yes
+Compression yes
+CompressionLevel 9
+ConnectionAttempts 3
+NumberOfPasswordPrompts 3
+ServerAliveCountMax 3
+ServerAliveInterval 10
+TCPKeepAlive yes
+Cipher aes256-cbc
+Ciphers aes256-cbc,aes192-cbc,aes128-cbc,blowfish-cbc,arcfour
+ForwardAgent yes
+HashKnownHosts yes
+ProxyCommand monkeysphere ssh-proxycommand %h %p
+VisualHostKey yes
+
+<%= scope.function_template(['private/console/ssh/host_aliases.erb']) %>

@@ -35,11 +35,13 @@ define kde_rc::merge (
 		ini_setting {"/home/etienne/$final_file merged file $source":
 			path => "/home/etienne/$final_file",
 			source => $multisource,
+			key_val_separator => '=',
 			require => Kde_rc[$final_file]
 		}
 		ini_setting {"/root/$final_file merged file $source":
 			path => "/root/$final_file",
 			source => $multisource,
+			key_val_separator => '=',
 			require => Kde_rc[$final_file]
 		}
 	} else {
@@ -47,11 +49,13 @@ define kde_rc::merge (
 		ini_setting {"/home/etienne/$final_file merged md5 $content_md5":
 			path => "/home/etienne/$final_file",
 			content => $content,
+			key_val_separator => '=',
 			require => Kde_rc[$final_file]
 		}
 		ini_setting {"/root/$final_file merged md5 $content_md5":
 			path => "/root/$final_file",
 			content => $content,
+			key_val_separator => '=',
 			require => Kde_rc[$final_file]
 		}
 	}
