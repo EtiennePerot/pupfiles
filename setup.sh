@@ -40,7 +40,7 @@ getpackages() {
 		fi
 	done
 }
-getpackages openssh openssl git
+getpackages openssh git scrypt python python2 python-scrypt
 if [ ! -d "$pupDir" ]; then
 	mkdir -p "$pupDir"
 	if ! git clone --recursive "$pupUrl" "$pupDir"; then
@@ -55,6 +55,11 @@ else
 	fi
 fi
 cd "$pupDir"
+if [ ! -f private/ssh.key ]; then
+	# If we don't have the appropriate ssh key to the private pupfiles repo,
+	# then remove any leftover private stuff
+	rm -rf private.key private encrypted-private
+fi
 if [ ! -d encrypted-private ]; then
 	fullPrivateCheckout='true'
 	while [ -n "$fullPrivateCheckout" ]; do
@@ -74,7 +79,7 @@ if [ ! -d encrypted-private ]; then
 	done
 else
 	cd encrypted-private
-	export GIT_SSH="$pupDir/git-ssh-private.sh"
+	export GIT_SSH="$pupDir/util/git-ssh-private.sh"
 	if ! git pull &> /dev/null; then
 		echo 'Could not update encrypted-private repository.'
 		exit 1
@@ -88,8 +93,6 @@ if [ ! -f private.key ]; then
 	echo -n 'Enter decryption key: '
 	read decryptionKey
 	echo "$decryptionKey" > private.key
-else
-	read decryptionKey < private.key
 fi
 while IFS= read -d $'\0' -r encryptedFile; do
 	file=$(echo "$encryptedFile" | sed 's#^encrypted-private/*##')
@@ -98,7 +101,8 @@ while IFS= read -d $'\0' -r encryptedFile; do
 		mkdir -p "$decryptedFile"
 	elif [ -f "$encryptedFile" ]; then
 		if [ ! -f "$decryptedFile" -o "$encryptedFile" -nt "$decryptedFile" ]; then
-			if ! openssl enc -d -aes-256-cbc -in "$encryptedFile" -out "$decryptedFile" -pass "pass:$decryptionKey"; then
+			echo "Decrypting $encryptedFile..."
+			if ! ./util/decrypt-scrypt.py "$decryptedFile" "$encryptedFile" < private.key; then
 				echo 'Invalid decryption key.'
 				rm private.key
 				exit 1

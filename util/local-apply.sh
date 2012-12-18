@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 scriptDir=$(dirname "$BASH_SOURCE")
-scriptDir=$(cd "$scriptDir" && pwd)
+scriptDir=$(cd "$scriptDir/.." && pwd)
 
 if [ ! -x "$scriptDir/setup.sh" ]; then
 	echo 'Cannot find setup.sh. Aborting.' >&2
