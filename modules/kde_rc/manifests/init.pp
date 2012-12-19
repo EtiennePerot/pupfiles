@@ -6,6 +6,7 @@ define kde_rc (
 	$content = false,
 	$replace = true
 ) {
+	require kde_rc::base
 	if $fullpath == false {
 		$final_path = ".kde4/share/config/$name"
 	} else {

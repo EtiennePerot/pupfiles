@@ -4,6 +4,7 @@ define kde_rc::merge (
 	$filename = $name,
 	$fullpath = false
 ) {
+	require kde_rc::base
 	case $source {
 		false: {
 			$multisource = []

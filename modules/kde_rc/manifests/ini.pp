@@ -5,6 +5,7 @@ define kde_rc::ini (
 	$setting = false,
 	$value = false
 ) {
+	require kde_rc::base
 	case $title {
 		/^([^|]+)\|([^|]+)\|([^=]+)=(.*)$/: {
 			if $file != false {
