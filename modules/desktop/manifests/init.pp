@@ -1,4 +1,5 @@
 class desktop (
+	$laptop = false,
 	$graphics_drivers = 'nvidia',
 	$desktop_environment = 'kde',
 	$apps = true,
@@ -6,6 +7,11 @@ class desktop (
 	$games = false
 ) {
 	include desktop::xorg
+	if $laptop {
+		class {'desktop::laptop':
+			desktop_environment => $desktop_environment
+		}
+	}
 	case $graphics_drivers {
 		'nvidia': {
 			include desktop::graphics::nvidia
@@ -22,6 +28,7 @@ class desktop (
 			include desktop::environment::kde
 		}
 	}
+	include desktop::networkmanager
 	if $apps {
 		include desktop::apps
 	}
