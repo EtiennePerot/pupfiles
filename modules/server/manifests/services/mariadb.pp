@@ -1,4 +1,6 @@
-class server::services::mariadb {
+class server::services::mariadb (
+	$service => false
+) {
 	package {'mysql':
 		ensure => absent
 	}
@@ -16,5 +18,10 @@ class server::services::mariadb {
 	}
 	package {'mariadb-clients':
 		require => [Package['mysql-clients'], Package['mariadb']]
+	}
+	if $service != false {
+		systemd_service {'mysqld':
+			require => Package['mariadb']
+		}
 	}
 }
