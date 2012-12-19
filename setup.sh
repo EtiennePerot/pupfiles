@@ -123,7 +123,7 @@ while IFS= read -d $'\0' -r decryptedFile; do
 done < <(find private -print0)
 chmod -R g-rwx,o-rwx private
 cd "$pupDir"
-chosenManifest=$(hostname)
+chosenManifest=$(hostname | tr '[:upper:]' '[:lower:]')
 if [ -f this.manifest ]; then
 	read chosenManifest < this.manifest
 fi
