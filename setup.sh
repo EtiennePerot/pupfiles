@@ -4,7 +4,6 @@ if [ "$EUID" -ne 0 ]; then
 	echo 'Run me as root.' >&2
 	exit 1
 fi
-setterm -blength 0
 
 pupUrl=git://perot.me/pupfiles
 pupDir=/var/lib/pupfiles
@@ -20,6 +19,8 @@ fi
 if [ -n "$PUP_JUST_SET_VARIABLES" ]; then
 	return
 fi
+
+setterm -blength 0
 
 if ! pacman -Q puppet &> /dev/null; then
 	if ! grep '\[archlinuxfr\]' /etc/pacman.conf &> /dev/null; then
