@@ -1,5 +1,5 @@
 class server::services::mariadb (
-	$service => false
+	$service = false
 ) {
 	package {'mysql':
 		ensure => absent
