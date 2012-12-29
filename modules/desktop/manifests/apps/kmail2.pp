@@ -4,9 +4,9 @@ class desktop::apps::kmail2 {
 		mode => 0700,
 		source => 'desktop/apps/kmail2'
 	}
-	#kde_rc::merge {'kmail2rc':
-	#	source => 'desktop/apps/kmail2'
-	#}
+	kde_rc::merge {'kmail2rc':
+		source => 'desktop/apps/kmail2'
+	}
 	kde_rc {'kmailrc':
 		source => 'desktop/apps/kmail2'
 	}
