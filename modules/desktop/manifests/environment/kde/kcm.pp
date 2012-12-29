@@ -5,4 +5,5 @@ class desktop::environment::kde::kcm (
 		dpi => $dpi
 	}
 	include desktop::environment::kde::kcm::input
+	include desktop::environment::kde::kcm::display
 }
