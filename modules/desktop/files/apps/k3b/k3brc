@@ -1,0 +1,8 @@
+[General Options]
+Allow overburning=false
+Manual buffer size=false
+Navigator breadcrumb mode=true
+No cd eject=false
+
+[TipOfDay]
+RunOnStart=false
