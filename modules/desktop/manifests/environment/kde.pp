@@ -33,4 +33,5 @@ class desktop::environment::kde (
 		require => Class['desktop::environment::kde::globals']
 	}
 	include desktop::environment::kde::notify
+	include desktop::environment::kde::klipper
 }

@@ -1,0 +1,5 @@
+[General]
+AutoStart=true
+
+[Notification Messages]
+StartAutomatically=true
