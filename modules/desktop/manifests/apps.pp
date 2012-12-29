@@ -6,4 +6,5 @@ class desktop::apps {
 	include desktop::apps::gwenview
 	include desktop::apps::dolphin
 	include desktop::apps::k3b
+	include desktop::apps::kate
 }
