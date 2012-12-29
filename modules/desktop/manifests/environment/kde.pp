@@ -27,7 +27,9 @@ class desktop::environment::kde (
 		require => Package['kdebase-workspace']
 	}
 
+	include desktop::environment::kde::globals
 	class {'desktop::environment::kde::kcm':
-		dpi => $dpi
+		dpi => $dpi,
+		require => Class['desktop::environment::kde::globals']
 	}
 }
