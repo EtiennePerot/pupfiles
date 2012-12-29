@@ -1,0 +1,15 @@
+[GPG Settings]
+gpg_config_path[$e]=$HOME/.gnupg/gpg.conf
+
+[General Options]
+First run=false
+photo properties=Small
+
+[Notification Messages]
+systemtrayquitKGpg=false
+
+[Servers]
+Server_List=hkp://keys.mayfirst.org
+
+[TipOfDay]
+RunOnStart=false
