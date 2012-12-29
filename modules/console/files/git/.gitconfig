@@ -28,3 +28,5 @@
 	log = true
 [apply]
 	whitespace = fix
+[push]
+	default = upstream
