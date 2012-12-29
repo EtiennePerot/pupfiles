@@ -10,4 +10,5 @@ class desktop::apps {
 	include desktop::apps::kcalc
 	include desktop::apps::kdiff3
 	include desktop::apps::kgpg
+	include desktop::apps::kleopatra
 }

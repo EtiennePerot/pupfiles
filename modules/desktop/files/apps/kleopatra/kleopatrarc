@@ -1,0 +1,9 @@
+[Notification Messages]
+really-quit-kleopatra=false
+
+[Self-Test]
+run-at-startup=true
+
+[Tooltip]
+show-certificate-details=true
+show-owner-information=true
