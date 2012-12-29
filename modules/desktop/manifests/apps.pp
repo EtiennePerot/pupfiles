@@ -7,4 +7,5 @@ class desktop::apps {
 	include desktop::apps::dolphin
 	include desktop::apps::k3b
 	include desktop::apps::kate
+	include desktop::apps::kcalc
 }

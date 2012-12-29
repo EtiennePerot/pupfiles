@@ -1,0 +1,6 @@
+[General]
+CalculatorMode=science
+captionresult=true
+
+[Precision]
+precision=200
