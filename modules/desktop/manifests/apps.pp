@@ -8,4 +8,5 @@ class desktop::apps {
 	include desktop::apps::k3b
 	include desktop::apps::kate
 	include desktop::apps::kcalc
+	include desktop::apps::kdiff3
 }
