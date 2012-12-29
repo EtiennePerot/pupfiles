@@ -1,0 +1,11 @@
+[filelight_part]
+antialias=true
+contrast=75
+minFontPitch=6
+scanAcrossMounts=false
+scanRemoteMounts=false
+scanRemovableMedia=false
+scheme=0
+showSmallFiles=false
+skipList[$e]=/dev/,/proc/,/sys/
+varyLabelFontSizes=true
