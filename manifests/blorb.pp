@@ -4,5 +4,6 @@ class {'console':}
 
 class {'desktop':
 	graphics_drivers => 'catalyst',
-	games => true
+	games => true,
+	dpi => 102
 }

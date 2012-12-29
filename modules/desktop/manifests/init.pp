@@ -1,6 +1,7 @@
 class desktop (
 	$laptop = false,
 	$graphics_drivers = 'nvidia',
+	$dpi = 112,
 	$desktop_environment = 'kde',
 	$apps = true,
 	$fonts = true,
@@ -25,7 +26,9 @@ class desktop (
 	}
 	case $desktop_environment {
 		'kde': {
-			include desktop::environment::kde
+			class {'desktop::environment::kde':
+				dpi => $dpi
+			}
 		}
 	}
 	include desktop::networkmanager

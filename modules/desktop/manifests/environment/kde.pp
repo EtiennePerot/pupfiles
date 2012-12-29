@@ -1,7 +1,11 @@
-class desktop::environment::kde {
+class desktop::environment::kde (
+	$dpi
+) {
 	# Replace akonadi's mysql with mariadb
-	# To do this properly we should install mariadb before installing KDE
+	# To do this properly we should install mariadb before installing KDE,
+	# hence the "require" here
 	require server::services::mariadb
+
 	package {'kdebase-workspace':}
 	package {'kde-meta-kdeaccessibility':}
 	package {'kde-meta-kdeadmin':}
@@ -21,5 +25,9 @@ class desktop::environment::kde {
 	package {'kde-wallpapers':}
 	systemd_service {'kdm':
 		require => Package['kdebase-workspace']
+	}
+
+	class {'desktop::environment::kde::kcm':
+		dpi => $dpi
 	}
 }
