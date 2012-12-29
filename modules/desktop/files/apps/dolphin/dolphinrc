@@ -1,0 +1,15 @@
+[General]
+AutoExpandFolders=true
+ConfirmClosingMultipleTabs=false
+ShowFullPath=true
+ShowSpaceInfo=true
+ShowToolTips=true
+
+[Notification Messages]
+ShowVcsRestartInformation=false
+
+[PreviewSettings]
+Plugins=calligrathumbnail,comicbookthumbnail,cursorthumbnail,directorythumbnail,djvuthumbnail,exrthumbnail,fontthumbnail,htmlthumbnail,imagethumbnail,jpegthumbnail,windowsexethumbnail,windowsimagethumbnail,gsthumbnail,rawthumbnail,svgthumbnail,textthumbnail,videopreview
+
+[VersionControl]
+enabledPlugins=Bazaar,Git,Mercurial,Subversion

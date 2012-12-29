@@ -4,4 +4,5 @@ class desktop::apps {
 	include desktop::apps::ark
 	include desktop::apps::filelight
 	include desktop::apps::gwenview
+	include desktop::apps::dolphin
 }
