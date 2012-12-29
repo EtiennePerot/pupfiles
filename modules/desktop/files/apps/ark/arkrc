@@ -1,0 +1,6 @@
+[Extraction]
+closeAfterExtraction=true
+openDestinationFolderAfterExtraction=true
+
+[HTML Settings]
+AutomaticDetectionLanguage=1

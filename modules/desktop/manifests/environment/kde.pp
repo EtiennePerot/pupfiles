@@ -22,6 +22,4 @@ class desktop::environment::kde {
 	systemd_service {'kdm':
 		require => Package['kdebase-workspace']
 	}
-
-
 }
