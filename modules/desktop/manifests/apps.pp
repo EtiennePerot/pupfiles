@@ -11,4 +11,5 @@ class desktop::apps {
 	include desktop::apps::kdiff3
 	include desktop::apps::kgpg
 	include desktop::apps::kleopatra
+	include desktop::apps::kmymoney
 }

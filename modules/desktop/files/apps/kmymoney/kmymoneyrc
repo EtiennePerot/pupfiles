@@ -1,0 +1,43 @@
+[Account View Settings]
+showAccountsExpanded=true
+
+[General Options]
+AlwaysShowNrField=true
+AutoIncCheckNumber=false
+AutoSaveFile=true
+AutoSaveOnClose=true
+AutoSavePeriod=25
+GpgRecipient=0xFDE54097
+LedgerLens=true
+PricePrecision=10
+Show Statusbar=true
+WriteDataEncrypted=true
+firstTimeRun=false
+
+[HTML Settings]
+AutomaticDetectionLanguage=1
+
+[Homepage Options]
+ItemList=8,1,2,3,4,5,6,7,9,10
+
+[List Options]
+groupMarkerColor=75,73,73
+importedTransactionColor=74,74,0
+listBGColor=43,42,42
+listColor=73,70,70
+matchedTransactionColor=37,61,37
+requiredFieldColor=66,11,3
+sortNormalView=1,2,6
+useSystemColors=true
+useSystemFont=true
+
+[Notification Messages]
+EnterScheduleDlgInfo=false
+GpgEncryptionActivated=false
+StoreEncrypted=true
+
+[Profiles]
+profiles=Default
+
+[TipOfDay]
+RunOnStart=false
