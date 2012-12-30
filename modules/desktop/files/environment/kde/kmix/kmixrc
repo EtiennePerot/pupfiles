@@ -1,0 +1,14 @@
+[Global]
+AllowDocking=true
+AutoUseMultimediaKeys=true
+Labels=true
+Menubar=true
+Orientation=Vertical
+Tickmarks=true
+TrayVolumeControl=true
+Visible=false
+VolumeFeedback=false
+startkdeRestore=true
+
+[Notification Messages]
+systemtrayquitKMix=false
