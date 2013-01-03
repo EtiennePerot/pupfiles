@@ -19,5 +19,8 @@ class desktop::apps::kmail2 {
 	kde_rc {'emailidentities':
 		source => 'desktop/apps/kmail2'
 	}
+	kde_rc {'mailtransports':
+		source => 'desktop/apps/kmail2'
+	}
 	akonadi_resource::imap {'etienne (at) perot (dot) me':}
 }

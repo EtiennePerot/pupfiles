@@ -1,6 +1,7 @@
 private/modules/private/files/console/ssh/.monkeysphere/identities/etienne (at) perot (dot) me
 private/modules/private/files/desktop/apps/kmail2/emaildefaults
 private/modules/private/files/desktop/apps/kmail2/emailidentities
+private/modules/private/files/desktop/apps/kmail2/mailtransports
 private/modules/private/files/desktop/fonts/stencil/Stencil.ttf
 private/modules/private/files/desktop/fonts/tf2/TF2.ttf
 private/modules/private/files/desktop/fonts/tf2/TF2Build.ttf
