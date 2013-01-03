@@ -37,4 +37,5 @@ class desktop::environment::kde (
 	include desktop::environment::kde::kmix
 	include desktop::environment::kde::kwallet
 	include desktop::environment::kde::kwin
+	include desktop::environment::kde::themes
 }

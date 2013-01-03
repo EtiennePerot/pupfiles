@@ -1,0 +1,6 @@
+[ActiveShadow]
+InnerColor=#000000
+OuterColor=#252525
+
+[Style]
+StackedWidgetTransitionsEnabled=true
