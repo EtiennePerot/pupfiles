@@ -12,4 +12,5 @@ class desktop::apps {
 	include desktop::apps::kgpg
 	include desktop::apps::kleopatra
 	include desktop::apps::kmymoney
+	include desktop::apps::konversation
 }

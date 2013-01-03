@@ -1,0 +1,98 @@
+[Appearance]
+AutoUserhost=true
+BacklogLines=99
+CustomTextFont=true
+NickColor0=164,233,60
+NickColor4=113,194,194
+NickColor5=179,84,33
+NickColor7=43,105,159
+NickColor8=140,217,153
+ShowDate=true
+ShowModeButtons=true
+ShowNicknameBox=false
+ShowQuickButtons=false
+TextFont=Droid Sans Mono,8,-1,5,50,0,0,0,0,0
+TimestampFormat=hh:mm:ss
+UseBoldNicks=true
+UseLiteralModes=true
+
+[BanList ViewSettings]
+ColumnSortDescending=false
+ColumnSorted=0
+
+[ChannelList ViewSettings]
+ColumnSortDescending=true
+ColumnSorted=1
+
+[DCC Settings]
+CreateFolder=true
+UPnP=true
+
+[Flags]
+AutoReconnect=false
+EncryptionType=1
+MiddleClickClose=true
+ReconnectDelay=30
+TabPlacement=Left
+
+[General Options]
+AutoWhoContinuousInterval=300
+AutoWhoNicksLimit=64
+AutomaticRememberLine=true
+CustomVersionReply=[Insert name-of-the-coolest-IRC-client-these-days here]
+CustomVersionReplyEnabled=true
+HideToTrayOnStartup=true
+LogfileBufferSize=1000
+MarkerLineInAllViews=true
+ScrollbackMax=128
+ShowBackgroundImage=true
+ShowRealNames=true
+ShowTrayIcon=true
+SpellChecking=true
+TrayNotify=true
+TrayNotifyOnlyOwnNick=true
+UseMultiRowInputBox=true
+
+[Highlight List]
+HighlightOwnLines=true
+HighlightOwnLinesColor=195,218,195
+
+[Message Text Colors]
+ActionMessage=146,188,255
+AlternateBackground=30,31,32
+ChannelMessage=166,166,166
+Hyperlink=142,155,255
+QueryMessage=186,168,121
+TextViewBackground=15,15,15
+
+[Nick Completion]
+Mode=2
+
+[NicksOnline ViewSettings]
+ColumnSortDescending=false
+ColumnSorted=0
+
+[Notification Messages]
+ChannelListNoServerSelected=1
+ChannelListWarning=0
+ClearLogfileQuestion=1
+CloseQueryAfterIgnore=1
+HideMenuBarWarning=1
+HideOnCloseInfo=0
+IgnoreNick=1
+Invitation=1
+QuitChannelTab=1
+QuitDCCChatTab=1
+QuitQueryTab=0
+QuitServerTab=1
+QuitWithActiveDccTransfers=1
+ReconnectWithDifferentServer=1
+ReuseExistingConnection=1
+SaveLogfileNote=1
+UnignoreNick=1
+WarnEncodingConflict=1
+systemtrayquitKonversation=0
+
+[Notify List]
+NotifyDelay=60
+OnStartup=true
