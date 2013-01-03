@@ -1,0 +1,7 @@
+[ByteTableView]
+FixedFont=Inconsolata Plus 0,8.5,-1,5,50,0,0,0,0,0
+Style=oxygen
+
+[InfoView]
+FixedFont=Inconsolata Plus 0,8.5,-1,5,50,0,0,0,0,0
+Style=oxygen
