@@ -10,7 +10,8 @@ class desktop::apps::yakuake {
 	kde_rc::merge {'yakuake.notifyrc':
 		source => 'desktop/apps/yakuake'
 	}
-	kde_rc::merge {'kglobalshortcutsrc': # Global activation shortcut
+	kde_rc::merge {'yakuake/kglobalshortcutsrc': # Global activation shortcut
+		filename => 'kglobalshortcutsrc',
 		source => 'desktop/apps/yakuake'
 	}
 }

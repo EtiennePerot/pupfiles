@@ -13,14 +13,14 @@ define kde_rc::merge (
 			$multisource = [$source]
 		}
 		default: {
-		$multisource = [
-			"puppet:///modules/private/$source/$filename",
-			"puppet:///modules/$source/$filename"
-		]
+			$multisource = [
+				"puppet:///modules/private/$source/$filename",
+				"puppet:///modules/$source/$filename"
+			]
 		}
 	}
 	if $fullpath == false {
-		$final_file = ".kde4/share/config/$name"
+		$final_file = ".kde4/share/config/$filename"
 	} else {
 		$final_file = $fullpath
 	}

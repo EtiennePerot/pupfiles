@@ -39,4 +39,5 @@ class desktop::environment::kde (
 	include desktop::environment::kde::kwin
 	include desktop::environment::kde::themes
 	include desktop::environment::kde::systemsettings
+	include desktop::environment::kde::krunner
 }
