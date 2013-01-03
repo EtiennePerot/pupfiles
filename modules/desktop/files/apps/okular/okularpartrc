@@ -1,0 +1,9 @@
+[Dlg Presentation]
+SlidesBackgroundColor=15,15,15
+SlidesPencilColor=0,192,0
+
+[Dlg Performance]
+MemoryLevel=Aggressive
+
+[General]
+ObeyDRM=false

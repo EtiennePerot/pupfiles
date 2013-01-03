@@ -17,4 +17,5 @@ class desktop::apps {
 	include desktop::apps::ktorrent
 	include desktop::apps::krdc
 	include desktop::apps::okteta
+	include desktop::apps::okular
 }
