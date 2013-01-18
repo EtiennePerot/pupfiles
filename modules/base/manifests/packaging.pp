@@ -3,4 +3,5 @@ class base::packaging {
 	package {'abs':}
 	include base::packaging::pkgfile
 	include base::packaging::multilib
+	include base::packaging::armh
 }
