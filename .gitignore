@@ -3,3 +3,4 @@ private
 encrypted-private
 private.key
 .directory
+*.gen.pp

@@ -137,4 +137,9 @@ while [ ! -f "manifests/$chosenManifest.pp" ]; do
 	echo "$chosenManifest" > this.manifest
 done
 modulePath="$pupDir/private/modules:$pupDir/modules:`puppet apply --configprint modulepath`"
-exec puppet apply --modulepath "$modulePath" "manifests/$chosenManifest.pp"
+if [ -f "private/manifests/$chosenManifest.pp" ]; then
+	cat "manifests/$chosenManifest.pp" "private/manifests/$chosenManifest.pp" > "manifests/.$chosenManifest.gen.pp"
+else
+	cp "manifests/$chosenManifest.pp" "manifests/.$chosenManifest.gen.pp"
+fi
+exec puppet apply --modulepath "$modulePath" "manifests/.$chosenManifest.gen.pp"
