@@ -13,7 +13,7 @@ class desktop::laptop (
 	package {'xf86-input-mtrack-git':}
 	case $desktop_environment {
 		'kde': {
-			package {'kcm_touchpad':}
+			aur_package {'kcm_touchpad':}
 		}
 	}
 }

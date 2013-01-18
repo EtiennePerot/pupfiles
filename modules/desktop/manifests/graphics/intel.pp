@@ -2,6 +2,7 @@ class desktop::graphics::intel {
 	package {'xf86-video-intel':}
 	package {'libva-intel-driver':}
 	package {'intel-dri':}
+	package {'driconf':}
 	include base::packaging::multilib
 	package {'lib32-intel-dri':
 		require => Class['base::packaging::multilib']
@@ -24,5 +25,8 @@ class desktop::graphics::intel {
 	file {'/etc/X11/xorg.conf.d/20-intel.conf':
 		source => 'puppet:///modules/desktop/graphics/intel/20-intel.conf',
 		require => Class['desktop::xorg']
+	}
+	enduser_file {'.drirc':
+		source => 'desktop/graphics/intel'
 	}
 }

@@ -1,0 +1,21 @@
+<driconf>
+    <device screen="0" driver="i965">
+        <application name="Default">
+            <option name="force_s3tc_enable" value="true" />
+            <option name="no_rast" value="false" />
+            <option name="always_flush_cache" value="false" />
+            <option name="stub_occlusion_query" value="false" />
+            <option name="shader_precompile" value="true" />
+            <option name="hiz" value="true" />
+            <option name="always_flush_batch" value="false" />
+            <option name="bo_reuse" value="1" />
+            <option name="early_z" value="false" />
+            <option name="force_glsl_extensions_warn" value="false" />
+            <option name="texture_tiling" value="true" />
+            <option name="disable_blend_func_extended" value="false" />
+            <option name="vblank_mode" value="3" />
+            <option name="allow_large_textures" value="2" />
+            <option name="fragment_shader" value="true" />
+        </application>
+    </device>
+</driconf>
