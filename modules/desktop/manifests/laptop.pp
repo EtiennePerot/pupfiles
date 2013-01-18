@@ -1,7 +1,11 @@
 class desktop::laptop (
 	$desktop_environment = 'kde'
 ) {
-	package {'laptop-mode-tools':}
+	package {'hdparm':}
+	package {'sdparm':}
+	package {'laptop-mode-tools':
+		require => [Package['hdparm'], Package['sdparm']]
+	}
 	systemd_service {'laptop-mode':
 		require => Package['laptop-mode-tools']
 	}
