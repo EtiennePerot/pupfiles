@@ -9,3 +9,9 @@ Action=
 Execute=
 KTTS=
 Logfile=
+
+[Event/exitkde]
+Action=
+Execute=
+KTTS=
+Logfile=
