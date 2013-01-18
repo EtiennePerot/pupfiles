@@ -1,3 +1,6 @@
+[kwin]
+Walk Through Windows of Current Application=none,Alt+`,Walk Through Windows of Current Application
+
 [yakuake]
 _k_friendly_name=Yakuake
 toggle-window-state=Alt+`,F12,Open/Retract Yakuake
