@@ -43,7 +43,7 @@ It will interactively ask for three things:
 Public/private repositories
 ---------------------------
 This section documents the public/private splitting in more details, because
-there is no security in obscurity.
+there is no such thing as security though obscurity.
 
 There are two repositories:
 
