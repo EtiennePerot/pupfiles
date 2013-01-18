@@ -15,6 +15,10 @@ if [ -f /usr/share/doc/pkgfile/command-not-found.zsh ]; then
 	source /usr/share/doc/pkgfile/command-not-found.zsh
 fi
 
+if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]; then
+	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+fi
+
 if [ -f "$ZSHC/zsh_nocorrect" ]; then
 	while read -r COMMAND; do
 		alias $COMMAND="nocorrect $COMMAND"
