@@ -7,6 +7,6 @@ class browser::firefox::ui {
 		isdefault => true
 	}
 	firefox_pref {'browser.urlbar.trimURLs':
-		value => false
+		value => false # Do not hide "http://" in the URL bar
 	}
 }
