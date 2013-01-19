@@ -6,10 +6,19 @@ forceQuote="$5"
 prefsJs="$homeDir/.mozilla/firefox/$profileName/prefs.js"
 
 # Hardcore '/" switching ahead, tread carefully
-if [ -n "$forceQuote" ]; then
-	pattern='^\s*user_pref\(\s*["'"']${prefKey}['"'"]\s*,\s*["'"']${prefValue}['"'"]\s*\);?\s*$'
-else
-	pattern='^\s*user_pref\(\s*["'"']${prefKey}['"'"]\s*,\s*["'"']?${prefValue}['"'"]?\s*\);?\s*$'
+existsPattern='^\s*user_pref\(\s*["'"']${prefKey}['"'"]\s*,\s*'
+if ! grep -E "$pattern" "$prefsJs" &> /dev/null; then
+	echo sdfd
+	exit 1
 fi
 
-exec grep -E "$pattern" "$prefsJs" &> /dev/null
+matchingLine=$(grep -E "$existsPattern" "$prefsJs")
+matchingPart=$(grep -oE "$existsPattern" "$prefsJs")
+matchingPartSize="${#matchingPart}"
+currentPrefValue=$(echo "${matchingLine:$matchingPartSize}" | sed -r 's/["'"'"']?\s*\)\s*;?\s*$//' | sed -r 's/^\s*["'"'"']?//')
+
+if [ "$currentPrefValue" != "$prefValue" ]; then
+	exit 1
+else
+	exit 0
+fi

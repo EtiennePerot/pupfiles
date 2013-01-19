@@ -1,5 +1,7 @@
 class firefox_profile::base {
-	package {'firefox':}
+	if ! defined(Package['firefox']) {
+		package {'firefox':}
+	}
 	enduser_file {'.mozilla':
 		ensure => directory,
 		require => Package['firefox']

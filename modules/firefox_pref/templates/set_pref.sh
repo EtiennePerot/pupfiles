@@ -6,7 +6,7 @@ forceQuote="$5"
 prefsJs="$homeDir/.mozilla/firefox/$profileName/prefs.js"
 
 # Hardcore '/" switching ahead, tread carefully
-existsPattern='^\s*user_pref\(\s*["'"']${prefKey}['"'"]\s*,'
+existsPattern='^\s*user_pref\(\s*["'"']${prefKey}['"'"]\s*,\s*'
 
 prefsContent=$(cat "$prefsJs" | grep -vE "$existsPattern")
 
