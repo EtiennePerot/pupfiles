@@ -1,6 +1,5 @@
 class browser::firefox {
 	package {'firefox':}
-	include browser::firefox::profile
 	include browser::firefox::nonewtabpage
 	include browser::firefox::nofirstrun
 	include browser::firefox::duckduckgo

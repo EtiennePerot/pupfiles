@@ -4,14 +4,10 @@ class browser::firefox::profile (
 	$default = 1
 ) {
 	enduser_file {'.mozilla':
-		ensure => directory,
-		require => Package['firefox']
+		ensure => directory
 	}
 	enduser_file {'.mozilla/firefox':
 		ensure => directory
-	}
-	enduser_file {'.mozilla/profiles.ini':
-		mode => 0644 # Firefox chmods it to that on startup
 	}
 	enduser_file::ini {'.mozilla/firefox/profiles.ini/General/StartWithLastProfile':
 		filename => '.mozilla/firefox/profiles.ini',
@@ -22,8 +18,8 @@ class browser::firefox::profile (
 	enduser_file {".mozilla/firefox/$profile":
 		ensure => directory
 	}
-	$section = "Profile$profilenumber"
 	enduser_file {".mozilla/firefox/$profile/prefs.js":}
+	$section = "Profile$profilenumber"
 	enduser_file::ini {".mozilla/firefox/profiles.ini/$section/Name":
 		filename => '.mozilla/firefox/profiles.ini',
 		section => $section,

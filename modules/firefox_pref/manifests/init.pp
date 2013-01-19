@@ -5,6 +5,7 @@ define firefox_pref (
 	$hasquotes = '',
 	$isdefault = false
 ) {
+	require browser::firefox::profile
 	if $value == true {
 		$actual_value = 'true'
 	} else {
