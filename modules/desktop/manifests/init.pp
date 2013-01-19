@@ -6,6 +6,7 @@ class desktop (
 	$browser = 'firefox',
 	$apps = true,
 	$fonts = true,
+	$media = true,
 	$games = false
 ) {
 	include desktop::xorg
@@ -35,13 +36,16 @@ class desktop (
 	if $browser {
 		browser {$browser:}
 	}
-	browser {'torbrowser':} # No machine should not have no way of anonymously communicating with the outside
+	browser {'tor-browser':} # No machine should not have no way of anonymously communicating with the outside
 	include desktop::networkmanager
 	if $apps {
 		include desktop::apps
 	}
 	if $fonts {
 		include desktop::fonts
+	}
+	if $media {
+		include desktop::media
 	}
 	if $games {
 		include desktop::games
