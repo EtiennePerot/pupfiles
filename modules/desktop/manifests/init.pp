@@ -3,6 +3,7 @@ class desktop (
 	$graphics_drivers = 'nvidia',
 	$dpi = 112,
 	$desktop_environment = 'kde',
+	$browser = 'firefox',
 	$apps = true,
 	$fonts = true,
 	$games = false
@@ -31,6 +32,10 @@ class desktop (
 			}
 		}
 	}
+	if $browser {
+		browser {$browser:}
+	}
+	browser {'torbrowser':} # No machine should not have no way of anonymously communicating with the outside
 	include desktop::networkmanager
 	if $apps {
 		include desktop::apps
