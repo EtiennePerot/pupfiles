@@ -5,6 +5,9 @@ define enduser_file::ini (
 	$value,
 	$key_val_separator = '='
 ) {
+	if ! defined(Enduser_file[$filename]) {
+		enduser_file {$filename:}
+	}
 	ini_setting {"/home/etienne/$filename/$section/$setting":
 		path => "/home/etienne/$filename",
 		section => $section,
