@@ -34,14 +34,24 @@ define enduser_file::single (
 				replace => $replace
 			}
 		} else {
-			file {$name:
-				ensure => $ensure,
-				mode => $mode,
-				owner => $owner,
-				group => $group,
-				source => $multisource,
-				recurse => $recurse,
-				replace => $replace
+			if $source == false {
+				file {$name:
+					ensure => $ensure,
+					mode => $mode,
+					owner => $owner,
+					group => $group,
+					replace => $replace
+				}
+			} else {
+				file {$name:
+					ensure => $ensure,
+					mode => $mode,
+					owner => $owner,
+					group => $group,
+					source => $multisource,
+					recurse => $recurse,
+					replace => $replace
+				}
 			}
 		}
 	} else {

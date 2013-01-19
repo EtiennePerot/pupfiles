@@ -87,16 +87,8 @@ define kde_rc::ini (
 			replace => false
 		}
 	}
-	ini_setting {"/home/etienne/$final_file/$actual_section/$actual_setting":
-		path => "/home/etienne/$final_file",
-		section => $actual_section,
-		setting => $actual_setting,
-		value => $actual_value,
-		key_val_separator => '=',
-		require => Kde_rc[$final_file]
-	}
-	ini_setting {"/root/$final_file/$actual_section/$actual_setting":
-		path => "/root/$final_file",
+	enduser_file::ini {"$final_file/$actual_section/$actual_setting":
+		filename => $final_file,
 		section => $actual_section,
 		setting => $actual_setting,
 		value => $actual_value,
