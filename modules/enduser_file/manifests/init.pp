@@ -5,7 +5,8 @@ define enduser_file (
 	$source = false,
 	$recurse = false,
 	$content = false,
-	$replace = true
+	$replace = true,
+	$noroot = false
 ) {
 	enduser_file::single {"/home/etienne/$name":
 		filename => $filename,
@@ -18,15 +19,17 @@ define enduser_file (
 		content => $content,
 		replace => $replace
 	}
-	enduser_file::single {"/root/$name":
-		filename => $filename,
-		owner => 'root',
-		group => 'root',
-		ensure => $ensure,
-		mode => $mode,
-		source => $source,
-		recurse => $recurse,
-		content => $content,
-		replace => $replace
+	if ! $noroot {
+		enduser_file::single {"/root/$name":
+			filename => $filename,
+			owner => 'root',
+			group => 'root',
+			ensure => $ensure,
+			mode => $mode,
+			source => $source,
+			recurse => $recurse,
+			content => $content,
+			replace => $replace
+		}
 	}
 }
