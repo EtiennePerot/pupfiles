@@ -1,0 +1,10 @@
+homeDir="$1"
+profileName="$2"
+prefKey="$3"
+prefValue="$4"
+forceQuote="$5"
+isDefault="$6"
+prefsJs="$homeDir/.mozilla/firefox/$profileName/prefs.js"
+
+# Hardcore '/" switching ahead, tread carefully
+existsPattern='^\s*user_pref\(\s*["'"']${prefKey}['"'"]\s*,\s*'

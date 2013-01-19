@@ -1,15 +1,15 @@
-homeDir="$1"
-profileName="$2"
-prefKey="$3"
-prefValue="$4"
-forceQuote="$5"
-prefsJs="$homeDir/.mozilla/firefox/$profileName/prefs.js"
+#!/usr/bin/env bash
 
-# Hardcore '/" switching ahead, tread carefully
-existsPattern='^\s*user_pref\(\s*["'"']${prefKey}['"'"]\s*,\s*'
-if ! grep -E "$pattern" "$prefsJs" &> /dev/null; then
-	echo sdfd
-	exit 1
+<%= scope.function_template(['firefox_pref/init.sh.erb']) %>
+
+# For some reason, "if ! grep" wasn't properly branching.
+grep -E "$existsPattern" "$prefsJs" &> /dev/null
+if [ "$?" -ne 0 ]; then
+	if [ "$isDefault" == true ]; then
+		exit 0
+	else
+		exit 1
+	fi
 fi
 
 matchingLine=$(grep -E "$existsPattern" "$prefsJs")

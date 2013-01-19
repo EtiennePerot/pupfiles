@@ -1,12 +1,6 @@
-homeDir="$1"
-profileName="$2"
-prefKey="$3"
-prefValue="$4"
-forceQuote="$5"
-prefsJs="$homeDir/.mozilla/firefox/$profileName/prefs.js"
+#!/usr/bin/env bash
 
-# Hardcore '/" switching ahead, tread carefully
-existsPattern='^\s*user_pref\(\s*["'"']${prefKey}['"'"]\s*,\s*'
+<%= scope.function_template(['firefox_pref/init.sh.erb']) %>
 
 prefsContent=$(cat "$prefsJs" | grep -vE "$existsPattern")
 

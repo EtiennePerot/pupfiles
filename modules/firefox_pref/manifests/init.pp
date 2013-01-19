@@ -1,12 +1,10 @@
 define firefox_pref (
-	$profile = 'default',
+	$profile = 'Default',
 	$key = $name,
 	$value,
-	$hasquotes = ''
+	$hasquotes = '',
+	$isdefault = false
 ) {
-	if ! defined(Firefox_profile[$profile]) {
-		firefox_profile {$profile:}
-	}
 	if $value == true {
 		$actual_value = 'true'
 	} else {
@@ -16,29 +14,34 @@ define firefox_pref (
 			$actual_value = $value
 		}
 	}
+	if $isdefault {
+		$actual_isdefault = 'true'
+	} else {
+		$actual_isdefault = 'false'
+	}
 	exec {"etienne Firefox $profile - Set $key":
 		command => shellquote(
 			'/usr/bin/env', 'bash',
-			'-c', template('firefox_pref/set_pref.sh'),
-			'set_pref.sh', '/home/etienne', $profile, $key, $actual_value, $hasquotes
+			'-c', template('firefox_pref/set_pref.sh.erb'),
+			'set_pref.sh', '/home/etienne', $profile, $key, $actual_value, $hasquotes, $actual_isdefault
 		),
 		unless => shellquote(
 			'/usr/bin/env', 'bash',
-			'-c', template('firefox_pref/has_pref.sh'),
-			'has_pref.sh', '/home/etienne', $profile, $key, $actual_value, $hasquotes
+			'-c', template('firefox_pref/has_pref.sh.erb'),
+			'has_pref.sh', '/home/etienne', $profile, $key, $actual_value, $hasquotes, $actual_isdefault
 		),
 		provider => 'shell'
 	}
 	exec {"root Firefox $profile - Set $key":
 		command => shellquote(
 			'/usr/bin/env', 'bash',
-			'-c', template('firefox_pref/set_pref.sh'),
-			'set_pref.sh', '/root', $profile, $key, $actual_value, $hasquotes
+			'-c', template('firefox_pref/set_pref.sh.erb'),
+			'set_pref.sh', '/root', $profile, $key, $actual_value, $hasquotes, $actual_isdefault
 		),
 		unless => shellquote(
 			'/usr/bin/env', 'bash',
-			'-c', template('firefox_pref/has_pref.sh'),
-			'has_pref.sh', '/root', $profile, $key, $actual_value, $hasquotes
+			'-c', template('firefox_pref/has_pref.sh.erb'),
+			'has_pref.sh', '/root', $profile, $key, $actual_value, $hasquotes, $actual_isdefault
 		),
 		provider => 'shell'
 	}
