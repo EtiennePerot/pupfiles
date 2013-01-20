@@ -6,7 +6,9 @@ define enduser_file (
 	$recurse = false,
 	$content = false,
 	$replace = true,
-	$noroot = false
+	$noroot = false,
+	$target = false,
+	$absolutetarget = true
 ) {
 	enduser_file::single {"/home/etienne/$name":
 		filename => $filename,
@@ -17,7 +19,10 @@ define enduser_file (
 		source => $source,
 		recurse => $recurse,
 		content => $content,
-		replace => $replace
+		replace => $replace,
+		target => $target,
+		absolutetarget => $absolutetarget,
+		targetprefix => '/home/etienne'
 	}
 	if ! $noroot {
 		enduser_file::single {"/root/$name":
@@ -29,7 +34,10 @@ define enduser_file (
 			source => $source,
 			recurse => $recurse,
 			content => $content,
-			replace => $replace
+			replace => $replace,
+			target => $target,
+			absolutetarget => $absolutetarget,
+			targetprefix => '/root'
 		}
 	}
 }

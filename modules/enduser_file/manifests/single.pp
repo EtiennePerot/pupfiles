@@ -7,7 +7,10 @@ define enduser_file::single (
 	$source = false,
 	$recurse = false,
 	$content = false,
-	$replace = true
+	$replace = true,
+	$target = false,
+	$absolutetarget = true,
+	$targetprefix = ''
 ) {
 	case $source {
 		false: {
@@ -23,34 +26,62 @@ define enduser_file::single (
 			]
 		}
 	}
+	if $absolutetarget {
+		$full_target = $target
+	} else {
+		$full_target = "$targetprefix/$target"
+	}
 	if $content == false {
-		if $ensure == directory and $source == false {
-			file {$name:
-				ensure => directory,
-				mode => $mode,
-				owner => $owner,
-				group => $group,
-				recurse => $recurse,
-				replace => $replace
-			}
-		} else {
+		if $ensure == directory {
 			if $source == false {
 				file {$name:
-					ensure => $ensure,
+					ensure => directory,
 					mode => $mode,
 					owner => $owner,
 					group => $group,
+					recurse => $recurse,
 					replace => $replace
 				}
 			} else {
 				file {$name:
-					ensure => $ensure,
+					ensure => directory,
 					mode => $mode,
 					owner => $owner,
 					group => $group,
 					source => $multisource,
 					recurse => $recurse,
 					replace => $replace
+				}
+			}
+		} else {
+			if $ensure == link {
+				file {$name:
+					ensure => link,
+					mode => $mode,
+					owner => $owner,
+					group => $group,
+					replace => $replace,
+					target => $full_target
+				}
+			} else {
+				if $source == false {
+					file {$name:
+						ensure => $ensure,
+						mode => $mode,
+						owner => $owner,
+						group => $group,
+						replace => $replace
+					}
+				} else {
+					file {$name:
+						ensure => $ensure,
+						mode => $mode,
+						owner => $owner,
+						group => $group,
+						source => $multisource,
+						recurse => $recurse,
+						replace => $replace
+					}
 				}
 			}
 		}
