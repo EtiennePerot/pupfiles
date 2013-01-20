@@ -20,4 +20,5 @@ class desktop::apps {
 	include desktop::apps::okular
 	include desktop::apps::yakuake
 	include desktop::apps::keepassx
+	include desktop::apps::konsole
 }
