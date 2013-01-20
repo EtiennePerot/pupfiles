@@ -142,4 +142,5 @@ if [ -f "private/manifests/$chosenManifest.pp" ]; then
 else
 	cp "manifests/$chosenManifest.pp" "manifests/.$chosenManifest.gen.pp"
 fi
+export FACTERLIB="$pupDir/facter"
 exec puppet apply --modulepath "$modulePath" "manifests/.$chosenManifest.gen.pp"
