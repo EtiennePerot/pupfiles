@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ -f /var/lib/pupfiles/private/modules/private/files/desktop/sync/encfs.key -a -f /home/etienne/.sync/encfs/.encfs6.xml ]; then
+	exec su -c 'encfs --stdinpass /home/etienne/.sync/encfs/ /home/etienne/.sync-decrypt/' etienne < /var/lib/pupfiles/private/modules/private/files/desktop/sync/encfs.key
+else
+	exit 1
+fi
