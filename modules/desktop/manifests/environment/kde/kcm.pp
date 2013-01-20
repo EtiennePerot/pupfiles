@@ -7,4 +7,6 @@ class desktop::environment::kde::kcm (
 	include desktop::environment::kde::kcm::input
 	include desktop::environment::kde::kcm::display
 	include desktop::environment::kde::kcm::cddb
+	include desktop::environment::kde::kcm::qtgraphicssystem
+	include desktop::environment::kde::kcm::gtkconfig
 }
