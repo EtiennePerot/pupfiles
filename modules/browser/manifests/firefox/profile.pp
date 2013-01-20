@@ -18,7 +18,7 @@ class browser::firefox::profile (
 	enduser_file {".mozilla/firefox/$profile":
 		ensure => directory
 	}
-	enduser_file {".mozilla/firefox/$profile/prefs.js":}
+	enduser_file {".mozilla/firefox/$profile/user.js":}
 	$section = "Profile$profilenumber"
 	enduser_file::ini {".mozilla/firefox/profiles.ini/$section/Name":
 		filename => '.mozilla/firefox/profiles.ini',

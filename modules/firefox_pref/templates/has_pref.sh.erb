@@ -6,7 +6,7 @@
 grep -E "$existsPattern" "$prefsJs" &> /dev/null
 if [ "$?" -ne 0 ]; then
 	if [ "$isDefault" == true ]; then
-		exit 0
+		exit 1 # Change to 0 if default prefs shouldn't be written
 	else
 		exit 1
 	fi
