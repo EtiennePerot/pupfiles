@@ -15,4 +15,5 @@ class browser::firefox {
 	include browser::firefox::network
 	include browser::firefox::refcontrol
 	include browser::firefox::dotsync
+	include browser::firefox::betterprivacy
 }
