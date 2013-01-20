@@ -17,4 +17,5 @@ class browser::firefox {
 	include browser::firefox::uacontrol
 	include browser::firefox::dotsync
 	include browser::firefox::betterprivacy
+	include browser::firefox::fonts
 }
