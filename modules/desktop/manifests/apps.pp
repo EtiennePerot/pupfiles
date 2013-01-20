@@ -19,4 +19,5 @@ class desktop::apps {
 	include desktop::apps::okteta
 	include desktop::apps::okular
 	include desktop::apps::yakuake
+	include desktop::apps::keepassx
 }
