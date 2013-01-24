@@ -26,7 +26,7 @@ class desktop::sync {
 		atboot => true,
 		device => 'DotSyncMount#_',
 		fstype => 'fuse',
-		options => 'defaults',
+		options => 'auto,defaults',
 		require => [Package['encfs'], File['/usr/bin/DotSyncMount']]
 	}
 }

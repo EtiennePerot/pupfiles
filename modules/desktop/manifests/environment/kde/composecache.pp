@@ -7,7 +7,7 @@ class desktop::environment::kde::composecache {
 		atboot => true,
 		device => 'tmpfs',
 		fstype => 'tmpfs',
-		options => 'nodev,uid=etienne,gid=users',
+		options => 'auto,nodev,uid=etienne,gid=users',
 		require => Enduser_file['.compose-cache']
 	}
 }

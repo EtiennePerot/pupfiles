@@ -32,6 +32,7 @@ class desktop::environment::kde (
 		dpi => $dpi,
 		require => Class['desktop::environment::kde::globals']
 	}
+	include desktop::environment::kde::kdm
 	include desktop::environment::kde::notify
 	include desktop::environment::kde::klipper
 	include desktop::environment::kde::kmix
