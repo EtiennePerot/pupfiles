@@ -20,7 +20,7 @@ if [ ! -f "manifests/$chosenManifest.pp" ]; then
 fi
 modulePath="$pupDir/private/modules:$pupDir/modules:`puppet apply --configprint modulepath`"
 if [ -f "private/manifests/$chosenManifest.pp" ]; then
-	cat "manifests/$chosenManifest.pp" "private/manifests/$chosenManifest.pp" > "manifests/.$chosenManifest.gen.pp"
+	cat "private/manifests/$chosenManifest.pp" "manifests/$chosenManifest.pp" > "manifests/.$chosenManifest.gen.pp"
 else
 	cp "manifests/$chosenManifest.pp" "manifests/.$chosenManifest.gen.pp"
 fi
