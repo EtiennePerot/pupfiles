@@ -1,11 +1,12 @@
 class desktop::games {
-	aur_package {'wine-multimedia':}
+	package {'wine':}
 	package {'wine_gecko':
-		require => Aur_package['wine-multimedia']
+		require => Package['wine']
 	}
 	package {'winetricks':
-		require => Aur_package['wine-multimedia']
+		require => Package['wine']
 	}
 	aur_package {'steam':}
 	package {'xonotic':}
+	aur_package {'dolphin-emu':}
 }
