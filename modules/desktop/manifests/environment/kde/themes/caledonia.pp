@@ -10,7 +10,8 @@ class desktop::environment::kde::themes::caledonia {
 	}
 	kde_rc::merge {'special:Add caledonia theme options to ksplash':
 		filename => 'ksplashrc',
-		source => 'desktop/environment/kde/themes/caledonia'
+		source => 'desktop/environment/kde/themes/caledonia',
+		rebuild_startup_config => true
 	}
 	kde_rc::merge {'special:Add caledonia theme options to plasmarc':
 		filename => 'plasmarc',

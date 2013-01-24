@@ -3,8 +3,15 @@ define kde_rc::merge (
 	$content = false,
 	$filename = $name,
 	$fullpath = false,
-	$absolutepath = false
+	$absolutepath = false,
+	$rebuild_startup_config = false
 ) {
+	if $rebuild_startup_config {
+		include kde_rc::startupconfig
+		$tonotify = [Class['kde_rc::startupconfig']]
+	} else {
+		$tonotify = []
+	}
 	require kde_rc::base
 	case $source {
 		false: {
@@ -23,7 +30,8 @@ define kde_rc::merge (
 	if $absolutepath {
 		if ! defined(File[$absolutepath]) {
 			file {$absolutepath:
-				ensure => present
+				ensure => present,
+				notify => $tonotify
 			}
 		}
 		if $content == false {
@@ -31,7 +39,8 @@ define kde_rc::merge (
 				path => $absolutepath,
 				source => $multisource,
 				key_val_separator => '=',
-				require => File[$absolutepath]
+				require => File[$absolutepath],
+				notify => $tonotify
 			}
 		} else {
 			$content_md5 = md5($content)
@@ -39,7 +48,8 @@ define kde_rc::merge (
 				path => $absolutepath,
 				content => $content,
 				key_val_separator => '=',
-				require => File[$absolutepath]
+				require => File[$absolutepath],
+				notify => $tonotify
 			}
 		}
 	} else {
@@ -52,7 +62,8 @@ define kde_rc::merge (
 			kde_rc {$final_file:
 				fullpath => $final_file,
 				ensure => present,
-				replace => false
+				replace => false,
+				notify => $tonotify
 			}
 		}
 		if $content == false {
@@ -60,13 +71,15 @@ define kde_rc::merge (
 				path => "/home/etienne/$final_file",
 				source => $multisource,
 				key_val_separator => '=',
-				require => Kde_rc[$final_file]
+				require => Kde_rc[$final_file],
+				notify => $tonotify
 			}
 			ini_setting {"/root/$final_file merged file $source":
 				path => "/root/$final_file",
 				source => $multisource,
 				key_val_separator => '=',
-				require => Kde_rc[$final_file]
+				require => Kde_rc[$final_file],
+				notify => $tonotify
 			}
 		} else {
 			$content_md5 = md5($content)
@@ -74,13 +87,15 @@ define kde_rc::merge (
 				path => "/home/etienne/$final_file",
 				content => $content,
 				key_val_separator => '=',
-				require => Kde_rc[$final_file]
+				require => Kde_rc[$final_file],
+				notify => $tonotify
 			}
 			ini_setting {"/root/$final_file merged md5 $content_md5":
 				path => "/root/$final_file",
 				content => $content,
 				key_val_separator => '=',
-				require => Kde_rc[$final_file]
+				require => Kde_rc[$final_file],
+				notify => $tonotify
 			}
 		}
 	}

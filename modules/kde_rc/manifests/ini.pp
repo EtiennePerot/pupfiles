@@ -3,9 +3,16 @@ define kde_rc::ini (
 	$file = false,
 	$section = false,
 	$setting = false,
-	$value = false
+	$value = false,
+	$rebuild_startup_config = false
 ) {
 	require kde_rc::base
+	if $rebuild_startup_config {
+		include kde_rc::startupconfig
+		$tonotify = [Class['kde_rc::startupconfig']]
+	} else {
+		$tonotify = []
+	}
 	case $title {
 		/^([^|]+)\|([^|]+)\|([^=]+)=(.*)$/: {
 			if $file != false {
@@ -84,7 +91,8 @@ define kde_rc::ini (
 			fullpath => $final_file,
 			ensure => present,
 			content => '',
-			replace => false
+			replace => false,
+			notify => $tonotify
 		}
 	}
 	enduser_file::ini {"$final_file/$actual_section/$actual_setting":
@@ -93,6 +101,7 @@ define kde_rc::ini (
 		setting => $actual_setting,
 		value => $actual_value,
 		key_val_separator => '=',
-		require => Kde_rc[$final_file]
+		require => Kde_rc[$final_file],
+		notify => $tonotify
 	}
 }
