@@ -1,0 +1,13 @@
+[X-*-Greeter]
+UseTheme=true
+Theme=/usr/share/apps/kdm/themes/caledonia
+GUIStyle=
+ColorScheme=
+LogoArea=Logo
+LogoPixmap=/usr/share/apps/kdm/pics/kdelogo.png
+GreeterPos=50,50
+GreetString=Welcome to %s at %n
+AntiAliasing=true
+GreetFont=Sans Serif,20,-1,5,50,0,0,0,0,0
+StdFont=Sans Serif,10,-1,5,50,0,0,0,0,0
+FailFont=Sans Serif,10,-1,5,75,0,0,0,0,0
