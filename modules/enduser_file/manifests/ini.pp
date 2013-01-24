@@ -3,10 +3,13 @@ define enduser_file::ini (
 	$section = '',
 	$setting,
 	$value,
-	$key_val_separator = '='
+	$key_val_separator = '=',
+	$mode = 0600
 ) {
 	if ! defined(Enduser_file[$filename]) {
-		enduser_file {$filename:}
+		enduser_file {$filename:
+			mode => $mode
+		}
 	}
 	ini_setting {"/home/etienne/$filename/$section/$setting":
 		path => "/home/etienne/$filename",
