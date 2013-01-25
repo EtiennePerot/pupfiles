@@ -4,44 +4,54 @@ class browser::firefox::profile (
 	$default = 1
 ) {
 	enduser_file {'.mozilla':
-		ensure => directory
+		ensure => directory,
+		mode => 0644
 	}
 	enduser_file {'.mozilla/firefox':
-		ensure => directory
+		ensure => directory,
+		mode => 0644
 	}
 	enduser_file::ini {'.mozilla/firefox/profiles.ini/General/StartWithLastProfile':
 		filename => '.mozilla/firefox/profiles.ini',
 		section => 'General',
 		setting => 'StartWithLastProfile',
-		value => 1
+		value => 1,
+		mode => 0644
 	}
 	enduser_file {".mozilla/firefox/$profile":
-		ensure => directory
+		ensure => directory,
+		mode => 0644
 	}
-	enduser_file {".mozilla/firefox/$profile/user.js":}
+	enduser_file {".mozilla/firefox/$profile/user.js":
+		mode => 0644
+	}
 	$section = "Profile$profilenumber"
 	enduser_file::ini {".mozilla/firefox/profiles.ini/$section/Name":
 		filename => '.mozilla/firefox/profiles.ini',
 		section => $section,
 		setting => 'Name',
-		value => $profile
+		value => $profile,
+		mode => 0644
 	}
 	enduser_file::ini {".mozilla/firefox/profiles.ini/$section/IsRelative":
 		filename => '.mozilla/firefox/profiles.ini',
 		section => $section,
 		setting => 'IsRelative',
-		value => 1
+		value => 1,
+		mode => 0644
 	}
 	enduser_file::ini {".mozilla/firefox/profiles.ini/$section/Path":
 		filename => '.mozilla/firefox/profiles.ini',
 		section => $section,
 		setting => 'Path',
-		value => $profile
+		value => $profile,
+		mode => 0644
 	}
 	enduser_file::ini {".mozilla/firefox/profiles.ini/$section/Default":
 		filename => '.mozilla/firefox/profiles.ini',
 		section => $section,
 		setting => 'Default',
-		value => $default
+		value => $default,
+		mode => 0644
 	}
 }

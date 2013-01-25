@@ -1,6 +1,7 @@
 class browser::firefox {
 	package {'firefox':}
-	include browser::firefox::nonewtabpage
+	include browser::firefox::syncwrapper
+	include browser::firefox::newtabpage
 	include browser::firefox::nofirstrun
 	include browser::firefox::duckduckgo
 	include browser::firefox::checkdefaultbrowser
@@ -17,5 +18,8 @@ class browser::firefox {
 	include browser::firefox::uacontrol
 	include browser::firefox::dotsync
 	include browser::firefox::betterprivacy
+	include browser::firefox::cookiewhitelistwithbuttons
+	include browser::firefox::selfdestructingcookies
 	include browser::firefox::fonts
+	include browser::firefox::sync
 }

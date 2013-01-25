@@ -46,7 +46,8 @@ class browser::firefox::privacy {
 		value => false
 	}
 	firefox_pref {'network.cookie.cookieBehavior':
-		value => 2
+		# Allow first-party cookies, do not allow third-party cookies. First-party cookies are destroyed on page close by Self-Destructing Cookies add-on.
+		value => 1
 	}
 	firefox_pref {'network.cookie.lifetimePolicy':
 		value => 2
