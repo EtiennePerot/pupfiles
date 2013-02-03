@@ -2,10 +2,7 @@ class {'base::etienne':}
 
 network_interface {$ethernet_macaddress:
 	rename => 'wired0',
-	macspoof => [
-		'wired_desktop_dedicated',
-		'wired_desktop_onboard'
-	],
+	macspoof => false, # Desktop machine, not much risk
 	ipv6_privacy => true
 }
 
