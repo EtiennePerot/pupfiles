@@ -1,0 +1,9 @@
+[Layout]
+Options=compose:ralt,caps:none,terminate:ctrl_alt_bksp
+ResetOldOptions=true
+ShowFlag=true
+ShowLabel=false
+ShowLayoutIndicator=false
+ShowSingle=false
+SwitchMode=Global
+Use=false
