@@ -13,8 +13,8 @@ define network_interface (
 	} else
 	{
 		if $rename {
-			udev_rule {"10-ifrename-$rename":
-				content => "SUBSYSTEM==\"net\", ATTR{address}==\"$macaddress\", NAME=\"$rename\""
+			udev_rename_interface {$macaddress:
+				rename => $rename
 			}
 			$actual_interface = $rename
 		} else {

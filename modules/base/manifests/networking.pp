@@ -8,4 +8,6 @@ class base::networking {
 	package {'openssh':}
 	package {'rsync':}
 	package {'nmap':}
+	package {'tcpdump':}
+	include private::base::networking::udevrenamedevices
 }
