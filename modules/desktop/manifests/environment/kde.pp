@@ -42,6 +42,7 @@ class desktop::environment::kde (
 	include desktop::environment::kde::systemsettings
 	include desktop::environment::kde::krunner
 	include desktop::environment::kde::gtkintegration
-	include desktop::environment::kde::kpartsplugin
 	include desktop::environment::kde::composecache
+	include desktop::environment::kde::kpartsplugin
+	include desktop::environment::kde::ksmserver
 }
