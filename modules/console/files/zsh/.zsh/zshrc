@@ -4,8 +4,11 @@ ZSHC="$HOME/.zsh"
 ZSH_CUSTOM="$ZSHC/custom"
 
 COMPLETION_WAITING_DOTS=true
-plugins=(ant arch compleat git github kate lol mercurial nyan pip python ssh-gpg-monkeysphere-agents svn wakeonlan)
+plugins=(archlinux cdenv git mercurial ssh-gpg-monkeysphere-agents svn undistract-me)
 setopt completealiases
+setopt histignoredups
+setopt auto_pushd
+unsetopt correct_all
 
 ZSH="$ZSHC/oh-my-zsh"
 source "$ZSH/oh-my-zsh.sh"
@@ -19,12 +22,6 @@ if [ -f /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.z
 	source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 fi
 
-if [ -f "$ZSHC/zsh_nocorrect" ]; then
-	while read -r COMMAND; do
-		alias $COMMAND="nocorrect $COMMAND"
-	done < "$ZSHC/zsh_nocorrect"
-fi
-
 if [ -f "$ZSHC/zsh_sudo" ]; then
 	while read -r COMMAND; do
 		alias $COMMAND="sudo $COMMAND"
@@ -34,14 +31,6 @@ fi
 if [ -f "$ZSHC/zsh_aliases" ]; then
 	source "$ZSHC/zsh_aliases"
 fi
-
-# Per-directory environment files
-cd() {
-	builtin cd "$@"
-	if [ -x .env ]; then
-		source .env
-	fi
-}
 
 export EDITOR=nano # Don't judge me!
 export PATH="$HOME/dev/dotfiles/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"

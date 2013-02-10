@@ -22,7 +22,7 @@ setopt prompt_subst
 local user_color='green'; [ $UID -eq 0 ] && user_color='red'
 local prompt_sign='$'; [ $UID -eq 0 ] && prompt_sign='#'
 PROMPT='%B%F{$user_color}%n@%m%{$reset_color%} %B%F{cyan}%~%B%F{green}${vcs_info_msg_0_}%B%F{magenta}%{$reset_color%} %B$prompt_sign%{$reset_color%} '
-RPROMPT="[%B%F{yellow}%?%{$reset_color%}]"
+RPROMPT="%(?..[%B%F{yellow}%?%{$reset_color%}])"
 
 autoload -U add-zsh-hook
 add-zsh-hook precmd theme_precmd
