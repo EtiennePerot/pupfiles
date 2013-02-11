@@ -1,4 +1,5 @@
 private/manifests/blorb.pp
+private/manifests/crapola.pp
 private/modules/private/files/console/ssh/.monkeysphere/identities/etienne (at) perot (dot) me
 private/modules/private/files/desktop/apps/kmail2/emaildefaults
 private/modules/private/files/desktop/apps/kmail2/emailidentities
