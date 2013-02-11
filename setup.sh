@@ -54,6 +54,10 @@ else
 		echo 'Could not update main repository.'
 		exit 1
 	fi
+	if ! git submodule update &> /dev/null; then
+		echo 'Could not update submodules.'
+		exit 1
+	fi
 fi
 cd "$pupDir"
 if [ ! -f private/ssh.key ]; then
