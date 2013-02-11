@@ -9,6 +9,7 @@ private/modules/private/files/desktop/fonts/tf2/TF2Build.ttf
 private/modules/private/files/desktop/fonts/tf2/TF2secondary.ttf
 private/modules/private/files/desktop/sync/encfs.key
 private/modules/private/files/desktop/wallpapers/*
+private/modules/private/manifests/base/networking/hosts.pp
 private/modules/private/manifests/base/networking/udevrenamedevices.pp
 private/modules/private/manifests/console/gpg.pp
 private/modules/private/manifests/init.pp
@@ -17,5 +18,6 @@ private/modules/private/templates/base/root/password
 private/modules/private/templates/console/gpg/*.asc
 private/modules/private/templates/console/ssh/host_aliases.erb
 private/modules/private/templates/desktop/apps/keepassx/keepassx.key
+private/modules/private/templates/synergy/blorb2.synergy.conf
 private/ssh.key
 private/ssh.key.pub

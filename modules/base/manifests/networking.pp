@@ -9,5 +9,6 @@ class base::networking {
 	package {'rsync':}
 	package {'nmap':}
 	package {'tcpdump':}
+	include private::base::networking::hosts
 	include private::base::networking::udevrenamedevices
 }
