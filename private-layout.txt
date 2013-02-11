@@ -8,6 +8,8 @@ private/modules/private/files/desktop/fonts/tf2/TF2.ttf
 private/modules/private/files/desktop/fonts/tf2/TF2Build.ttf
 private/modules/private/files/desktop/fonts/tf2/TF2secondary.ttf
 private/modules/private/files/desktop/sync/encfs.key
+private/modules/private/files/desktop/wallpapers/*
+private/modules/private/manifests/base/networking/udevrenamedevices.pp
 private/modules/private/manifests/console/gpg.pp
 private/modules/private/manifests/init.pp
 private/modules/private/templates/base/etienne/password
