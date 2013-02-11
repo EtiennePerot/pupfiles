@@ -22,7 +22,9 @@ define enduser_file::single (
 		default: {
 			$multisource = [
 				"puppet:///modules/private/$source/$filename",
-				"puppet:///modules/$source/$filename"
+				"puppet:///modules/$source/$filename",
+				"puppet:///modules/private/$source",
+				"puppet:///modules/$source"
 			]
 		}
 	}

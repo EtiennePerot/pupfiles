@@ -1,5 +1,6 @@
 class desktop::environment::kde::kcm (
-	$dpi
+	$dpi,
+	$laptop
 ) {
 	class {'desktop::environment::kde::kcm::fonts':
 		dpi => $dpi
@@ -9,4 +10,7 @@ class desktop::environment::kde::kcm (
 	include desktop::environment::kde::kcm::cddb
 	include desktop::environment::kde::kcm::qtgraphicssystem
 	include desktop::environment::kde::kcm::gtkconfig
+	class {'desktop::environment::kde::kcm::power':
+		laptop => $laptop
+	}
 }

@@ -1,5 +1,6 @@
 class desktop::environment::kde (
-	$dpi
+	$dpi,
+	$laptop
 ) {
 	# Replace akonadi's mysql with mariadb
 	# To do this properly we should install mariadb before installing KDE,
@@ -30,6 +31,7 @@ class desktop::environment::kde (
 	include desktop::environment::kde::globals
 	class {'desktop::environment::kde::kcm':
 		dpi => $dpi,
+		laptop => $laptop,
 		require => Class['desktop::environment::kde::globals']
 	}
 	include desktop::environment::kde::kdm

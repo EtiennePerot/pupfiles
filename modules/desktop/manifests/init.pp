@@ -29,7 +29,8 @@ class desktop (
 	case $desktop_environment {
 		'kde': {
 			class {'desktop::environment::kde':
-				dpi => $dpi
+				dpi => $dpi,
+				laptop => $laptop
 			}
 		}
 	}

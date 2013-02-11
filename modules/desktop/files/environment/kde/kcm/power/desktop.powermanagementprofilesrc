@@ -1,0 +1,6 @@
+[AC]
+icon=battery-charging
+
+[AC][HandleButtonEvents]
+lidAction=0
+powerButtonAction=16
