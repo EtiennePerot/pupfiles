@@ -1,7 +1,8 @@
 define kde_autostart (
 	$filename = $name,
 	$simplename = false,
-	$absolutetarget = false
+	$absolutetarget = false,
+	$command = false
 ) {
 	if $simplename {
 		$actual_name = $simplename
@@ -18,10 +19,17 @@ define kde_autostart (
 			ensure => directory
 		}
 	}
-	enduser_file {".kde4/Autostart/$actual_name":
-		ensure => link,
-		target => $filename,
-		absolutetarget => $absolutetarget,
-		require => Enduser_file[$filename]
+	if $command {
+		enduser_file {".kde4/Autostart/$actual_name":
+			mode => 0700,
+			content => regsubst(template('kde_autostart/single_command.sh'), '%COMMAND%', shellquote($command))
+		}
+	} else {
+		enduser_file {".kde4/Autostart/$actual_name":
+			ensure => link,
+			target => $filename,
+			absolutetarget => $absolutetarget,
+			require => Enduser_file[$filename]
+		}
 	}
 }
