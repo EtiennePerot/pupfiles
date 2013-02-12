@@ -3,11 +3,7 @@ class synergy::client (
 	$server
 ) {
 	require synergy
-	enduser_file {'.synergyc.sh':
-		mode => 0700,
-		content => regsubst(regsubst(template('synergy/client/.synergyc.sh'), '%SYNERGY_SERVER%', $server), '%SYNERGY_NODE%', $node)
-	}
-	kde_autostart {'.synergyc.sh':
-		simplename => 'synergyc.sh'
+	kde_autostart {'synergyc.sh':
+		command => ['synergyc', '--daemon', '--restart', '--no-tray', '--name', $server, $node]
 	}
 }
