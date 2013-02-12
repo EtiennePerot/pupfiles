@@ -1,5 +1,5 @@
 [Compositing]
-AnimationSpeed=1
+AnimationSpeed=2
 Backend=OpenGL
 Enabled=true
 GLLegacy=false
@@ -67,6 +67,7 @@ kwin4_effect_logoutEnabled=true
 kwin4_effect_lookingglassEnabled=false
 kwin4_effect_magiclampEnabled=true
 kwin4_effect_magnifierEnabled=true
+kwin4_effect_maximizeEnabled=true
 kwin4_effect_minimizeanimationEnabled=false
 kwin4_effect_mousemarkEnabled=false
 kwin4_effect_outlineEnabled=false
