@@ -14,4 +14,8 @@ class desktop::apps::yakuake {
 		filename => 'kglobalshortcutsrc',
 		source => 'desktop/apps/yakuake'
 	}
+	kde_autostart {'yakuake.sh':
+		command => ['yakuake'],
+		require => Package['yakuake']
+	}
 }
