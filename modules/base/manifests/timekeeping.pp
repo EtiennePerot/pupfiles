@@ -18,5 +18,10 @@ class base::timekeeping (
 	file {'/etc/tlsdate/ca-roots/tlsdate-ca-roots.conf':
 		content => file('/usr/share/ca-certificates/mozilla/StartCom_Certification_Authority.crt')
 	}
-	systemd_service {'tlsdated':}
+	systemd_service {'tlsdated':
+		enable => true
+	}
+	systemd_service {'ntpd':
+		enable => false
+	}
 }
