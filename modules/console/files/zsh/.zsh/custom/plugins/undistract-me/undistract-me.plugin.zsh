@@ -22,7 +22,7 @@ undistract_me_precmd() {
 			fi
 		done
 		if [ -n "$validCommand" ]; then
-			((duration="$end_time" - "$UNDISTRACT_ME_CMD_START_TIME"))
+			((duration=$end_time - $UNDISTRACT_ME_CMD_START_TIME))
 			if [ "$duration" -gt 15 ]; then
 				notify-send --urgency=low --expire-time=1500 --icon=utilities-terminal 'Command executed' "'$UNDISTRACT_ME_CMD' ended in $duration seconds."
 			fi
