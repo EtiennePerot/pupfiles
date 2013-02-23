@@ -4,6 +4,7 @@ class base (
 	include base::root
 	include base::nobeep
 	include base::packaging
+	include base::timekeeping
 	include base::sudo
 	include base::python
 	if $networking {
