@@ -10,6 +10,70 @@ few moments later, the entire machine is set up and ready to use with my
 favorite desktop environment, packages, application configuration, services,
 user accounts, SSH/PGP keys, network profiles, etc.
 
+What does it do?
+----------------
+
+Quite a few things, depending on how much you want it to do. Here's some of it
+(maye not be up-to-date):
+
+* Set up Yaourt and its repository
+* Set up ZSH as default shell, with oh-my-zsh and my personal theme and
+  plugins (ssh-agent, gpg-agent, auto sudo, more autocompletions, etc)
+* Set up graphics drivers (Intel, ATI, Nvidia all supported)
+* Set up additional SSL certificates
+* Populate GPG keyring with personal keys, configure GPG's keyserver list
+  and preferred algorithms
+* Make man pages colorized (mostlike)
+* Set up Synergy+ to share mouse/keyboard over the network
+* Set up my synchronized encfs drive (currently hosted on SpiderOak)
+* Set up MAC address spoofing and IPv6 privacy extensions on NICs
+* Set up Git and my configuration and shortcuts for it
+* Disable hardware PC speaker
+* Set up DKMS, make `linux-headers` package to be upgraded first
+* Set up tlsdate
+* Add my favorite fonts
+* Install basic console packages (screen, most, htop, etc)
+* Set up Monkeysphere (keys and SSH config), with automatic identity loading
+* Set up KDE:
+    * Use MariaDB instead of MySQL for Akonadi
+    * Configure every KCM ever (mouse input, keyboard layout, key repetition
+   settings, power management, Qt rendering engine, GTK integration)
+    * Add themes (Oxygen, Caledonia)
+    * Set up KWin effects and speed settings
+    * Create `~/.compose-cache`
+    * Set up KMix
+    * Set up KDM for auto-login-but-still-require-password mode
+    * Install my wallpaper rotation
+* Install and configure lots of applications:
+    * Yakuake, with associated configuration and keyboard shortcut
+    * Konsole, with associated configuration, profile, and font
+    * KeePassX, with my own autostarting patch and configuration
+    * Konversation, with associated configuration
+    * Okteta, with associated configuration
+    * KCalc
+    * Dolphin, with associated configuration
+    * Filelight, with associated configuration
+    * KMyMoney (what a horrible name), with associated configuration
+    * KMail2 (it's a big one), with associated configuration and identities
+    * Kleopatra, with associated configuration
+    * Gwenview, with associated configuration
+    * Kate (also a big one), with associated configuration
+    * KTorrent, with associated configuration
+    * redshift, with associated configuration and auto-starting behavior
+    * K3B, with associated configuration
+    * Okular, with associated configuration
+    * KRuler
+    * KDiff3, with associated configuration
+    * Ark, with associated configuration
+* Set up Firefox:
+    * Set up lots of Firefox preferences on default profile
+    * Preconfigure some extensions that Firefox Sync will autodownload on start
+    * Set up cron job to vaccuum the profile databases
+    * Set up symlinks to encfs synchronized drive to synchronize things that
+   Firefox Sync cannot synchronize by itself
+    * Set up fancy newtab/home pages
+* Install Tor browser bundle
+
 Usage
 -----
 Unfortunately, this repository cannot be used as-is, because there is a
