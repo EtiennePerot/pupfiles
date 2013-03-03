@@ -27,9 +27,6 @@ class browser::firefox::privacy {
 	firefox_pref {'dom.storage.enabled':
 		value => false
 	}
-	firefox_pref {'browser.display.use_document_fonts':
-		value => 0
-	}
 	firefox_pref {'browser.cache.offline.capacity':
 		value => 0
 	}

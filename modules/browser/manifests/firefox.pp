@@ -1,6 +1,6 @@
 class browser::firefox {
 	package {'firefox':}
-	include browser::firefox::syncwrapper
+	include browser::firefox::launcher
 	include browser::firefox::newtabpage
 	include browser::firefox::nofirstrun
 	include browser::firefox::duckduckgo
