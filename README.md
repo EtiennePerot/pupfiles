@@ -31,13 +31,14 @@ Quite a few things, depending on how much you want it to do. Here's some of it
 * Disable hardware PC speaker
 * Set up DKMS, make `linux-headers` package to be upgraded first
 * Set up tlsdate
+* Limit systemd journal to a more reasonable size (50MB)
 * Add my favorite fonts
 * Install basic console packages (screen, most, htop, etc)
 * Set up Monkeysphere (keys and SSH config), with automatic identity loading
 * Set up KDE:
     * Use MariaDB instead of MySQL for Akonadi
     * Configure every KCM ever (mouse input, keyboard layout, key repetition
-   settings, power management, Qt rendering engine, GTK integration)
+      settings, power management, Qt rendering engine, GTK integration)
     * Add themes (Oxygen, Caledonia)
     * Set up KWin effects and speed settings
     * Create `~/.compose-cache`
@@ -70,7 +71,7 @@ Quite a few things, depending on how much you want it to do. Here's some of it
     * Preconfigure some extensions that Firefox Sync will autodownload on start
     * Set up cron job to vaccuum the profile databases
     * Set up symlinks to encfs synchronized drive to synchronize things that
-   Firefox Sync cannot synchronize by itself
+      Firefox Sync cannot synchronize by itself
     * Set up fancy newtab/home pages
 * Install Tor browser bundle
 

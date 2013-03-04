@@ -23,7 +23,7 @@ fi
 setterm -blength 0
 
 if ! pacman -Q puppet &> /dev/null; then
-	if ! grep '\[archlinuxfr\]' /etc/pacman.conf &> /dev/null; then
+	if ! grep -iP '^\[archlinuxfr\]$' /etc/pacman.conf &> /dev/null; then
 		echo >> /etc/pacman.conf # Empty line
 		echo '[archlinuxfr]' >> /etc/pacman.conf
 		echo 'Server = http://repo.archlinux.fr/$arch' >> /etc/pacman.conf
