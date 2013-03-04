@@ -32,6 +32,7 @@ Quite a few things, depending on how much you want it to do. Here's some of it
 * Set up DKMS, make `linux-headers` package to be upgraded first
 * Set up tlsdate
 * Limit systemd journal to a more reasonable size (50MB)
+* Enable readahead replay and data collection
 * Add my favorite fonts
 * Install basic console packages (screen, most, htop, etc)
 * Set up Monkeysphere (keys and SSH config), with automatic identity loading

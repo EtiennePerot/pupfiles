@@ -10,4 +10,6 @@ class base::systemd {
 		value => '50M',
 		require => Package['systemd']
 	}
+	systemd_service {'systemd-readahead-collect':}
+	systemd_service {'systemd-readahead-replay':}
 }
