@@ -10,8 +10,8 @@ NumberOfPasswordPrompts 3
 ServerAliveCountMax 3
 ServerAliveInterval 10
 TCPKeepAlive yes
-Cipher aes256-cbc
-Ciphers aes256-cbc,aes192-cbc,aes128-cbc,blowfish-cbc,arcfour
+Ciphers aes256-ctr,aes192-ctr,aes256-cbc,aes192-cbc,blowfish-cbc
+MACs hmac-sha2-512,hmac-sha2-256,hmac-sha1
 ForwardAgent yes
 HashKnownHosts yes
 ProxyCommand monkeysphere ssh-proxycommand %h %p
