@@ -20,9 +20,10 @@
 	rclone = clone --recursive
 	a = add
 	d = diff --minimal --no-prefix --patch-with-stat
+	ds = diff --minimal --no-prefix --patch-with-stat --staged
+	l = log --pretty --show-signature --decorate=full --notes --graph
 	s = status -s
 	c = commit
-	ds = diff --minimal --no-prefix --patch-with-stat --staged
 	svnpush = "!f(){ git push; git fetch; git rebase; };f"
 	undo = reset --soft HEAD^
 	hardundo = reset --hard HEAD^
