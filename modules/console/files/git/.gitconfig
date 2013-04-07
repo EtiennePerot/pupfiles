@@ -27,6 +27,7 @@
 	svnpush = "!f(){ git push; git fetch; git rebase; };f"
 	undo = reset --soft HEAD^
 	hardundo = reset --hard HEAD^
+	submoduleup = "!f(){ git submodule foreach pwd | grep '^/' | bash -c 'while read submodule; do echo "$submodule" && pushd \"$submodule\" &> /dev/null && branchName=\"$(git rev-parse --abbrev-ref HEAD)\" && git pull && git checkout "$branchName" && popd &> /dev/null; done'; };f"
 [merge]
 	log = true
 [apply]
