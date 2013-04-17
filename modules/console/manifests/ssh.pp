@@ -1,6 +1,7 @@
 class console::ssh {
 	include console::gpg
 	package {'autossh':}
+	package {'mosh':}
 	package {'monkeysphere-git':}
 	enduser_file {'.ssh':
 		ensure => directory
