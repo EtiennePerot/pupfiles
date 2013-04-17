@@ -4,3 +4,4 @@ alias scp='scp -r'
 alias mkdir='mkdir -p'
 alias rsync='rsync -ru --progress'
 alias man="TERMINFO=~/.terminfo/ LESS=C TERM=mostlike PAGER=most man"
+alias openports='netstat -tulpn'
