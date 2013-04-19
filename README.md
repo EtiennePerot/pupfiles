@@ -67,6 +67,7 @@ Quite a few things, depending on how much you want it to do. Here's some of it
     * KRuler
     * KDiff3, with associated configuration
     * Ark, with associated configuration
+    * MPlayer and SMPlayer, with associated configuration
 * Set up Firefox:
     * Set up lots of Firefox preferences on default profile
     * Preconfigure some extensions that Firefox Sync will autodownload on start

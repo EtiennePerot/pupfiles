@@ -2,7 +2,7 @@ class desktop::media {
 	package {'amarok':}
 	package {'vlc':}
 	package {'ffmpeg':}
-	package {'mplayer':}
+	include desktop::media::mplayer
 	package {'mencoder':}
 	package {'mkvtoolnix-cli':}
 	package {'mkvtoolnix-gtk':}
