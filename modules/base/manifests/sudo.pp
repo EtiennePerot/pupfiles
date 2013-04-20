@@ -4,7 +4,8 @@ class base::sudo {
 	file {'/etc/sudoers.d/allow-wheel':
 		ensure => present,
 		content => '%wheel ALL=(ALL) NOPASSWD: ALL',
-		require => Package['sudo']
+		require => Package['sudo'],
+		mode => 0440
 	}
 	file {'/etc/sudoers.d/defaults_keep_home':
 		ensure => present,
