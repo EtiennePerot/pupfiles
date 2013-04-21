@@ -34,8 +34,11 @@ Quite a few things, depending on how much you want it to do. Here's some of it
 * Limit systemd journal to a more reasonable size (50MB)
 * Enable readahead replay and data collection
 * Add my favorite fonts
-* Install basic console packages (screen, most, htop, etc)
+* Install basic console packages (`screen`, `most`, `htop`, etc)
+* Configure SSH and populate its aliases
 * Set up Monkeysphere (keys and SSH config), with automatic identity loading
+* Set up `getmail` and associated identities and cronjobs and `maidag` MDA and
+  its Sieve rules
 * Set up KDE:
     * Use MariaDB instead of MySQL for Akonadi
     * Configure every KCM ever (mouse input, keyboard layout, key repetition

@@ -23,4 +23,5 @@ class desktop::apps::kmail2 {
 		source => 'desktop/apps/kmail2'
 	}
 	akonadi_resource::imap {'etienne (at) perot (dot) me':}
+	include private::desktop::apps::kmail2 # Defines a few pop3_maildir's
 }

@@ -1,0 +1,39 @@
+#!/usr/bin/env bash
+
+set -e
+
+cd '<%= maildir %>'
+stubDir='<%= stubdir %>'
+stubDirExtension="getmail-$RANDOM-$RANDOM-$RANDOM"
+stubDir="$stubDir/$stubDirExtension"
+mkdir -p "$stubDir"
+chmod 700 "$stubDir"
+while IFS= read -d $'\0' -r dir; do
+	mkdir -p "$stubDir/$dir"
+done < <(find -type d -print0)
+echo "[retriever]
+type = SimplePOP3SSLRetriever
+server = <%= pop3_server %>
+username = <%= pop3_user %>
+password = <%= pop3_password %>
+
+[destination]
+type = MDA_external
+path = /usr/sbin/maidag
+arguments = (\"--rcfile=$stubDir/.maidag\", \"--from\", \"%(sender)\", \"-s\", \"$stubDir/.sieve\")
+
+[options]
+delete = true" > "$stubDir/.getmailrc"
+echo "mailbox {
+	mailbox-pattern \"maildir://$stubDir/<%= inbox_folder %>\";
+}" > "$stubDir/.maidag"
+cat '<%= maildir %>/.sieve' | sed "s%fileinto \"%fileinto \"maildir://$stubDir/.<%= inbox_folder %>.directory/%gi" > "$stubDir/.sieve"
+set +e
+<% if torify %>torsocks <% end %>getmail --rcfile="$stubDir/.getmailrc"
+exitCode="$?"
+set -e
+sudo /usr/bin/.restore-stub-dir "$stubDir"
+chmod -R 700 "$stubDir"
+rsync -r "$stubDir/" '<%= maildir %>'
+rm -rf "$stubDir"
+exit "$exitCode"
