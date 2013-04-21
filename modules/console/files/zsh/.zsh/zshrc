@@ -33,7 +33,7 @@ if [ -f "$ZSHC/zsh_aliases" ]; then
 fi
 
 export EDITOR=nano # Don't judge me!
-export PATH="$HOME/dev/dotfiles/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
+export PATH="/opt/android-sdk/tools:/opt/android-sdk/platform-tools:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games"
 export GPGKEY=5CFC3B88974EE250
 export PAGER=most
 export LANG=en_US.UTF-8
