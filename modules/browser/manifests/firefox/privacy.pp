@@ -57,6 +57,9 @@ class browser::firefox::privacy {
 		value => true,
 		isdefault => true
 	}
+	firefox_pref {'network.proxy.socks_remote_dns':
+		value => true
+	}
 	firefox_pref {'toolkit.telemetry.enabled':
 		value => false,
 		isdefault => true
