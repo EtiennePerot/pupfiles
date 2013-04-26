@@ -1,6 +1,6 @@
 # zsh configuration file
 
-ZSHC="$HOME/.zsh"
+ZSHC="$(dirname "${BASH_SOURCE:-$0}")"
 ZSH_CUSTOM="$ZSHC/custom"
 
 COMPLETION_WAITING_DOTS=true
