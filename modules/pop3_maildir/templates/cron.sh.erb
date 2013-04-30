@@ -2,6 +2,8 @@
 
 set -e
 
+sleep $[(($RANDOM*$RANDOM)%<%= cron_randomdelay %>)+1]
+
 cd '<%= maildir %>'
 stubDir='<%= stubdir %>'
 stubDirExtension="getmail-$RANDOM-$RANDOM-$RANDOM"

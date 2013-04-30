@@ -10,6 +10,7 @@ define pop3_maildir (
 	$sieve = '',
 	$cron_hour = '*',
 	$cron_minute = '*/20',
+	$cron_randomdelay = 54000, # 15 minutes = 54000 seconds
 	$torify = true
 ) {
 	require pop3_maildir::restore_stub_dir
