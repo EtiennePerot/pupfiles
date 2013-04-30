@@ -4,22 +4,22 @@ define pop3_maildir::maildir (
 ) {
 	file {"$path":
 		ensure => directory,
-		owner => $localuser,
+		owner => $owner,
 		mode => 0600
 	}
 	file {"$path/cur":
 		ensure => directory,
-		owner => $localuser,
+		owner => $owner,
 		mode => 0600
 	}
 	file {"$path/new":
 		ensure => directory,
-		owner => $localuser,
+		owner => $owner,
 		mode => 0600
 	}
 	file {"$path/tmp":
 		ensure => directory,
-		owner => $localuser,
+		owner => $owner,
 		mode => 0600
 	}
 }
