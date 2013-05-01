@@ -2,7 +2,9 @@
 
 set -e
 
-sleep $[(($RANDOM*$RANDOM)%<%= cron_randomdelay %>)+1]
+if [ "$#" -eq 0 ]; then
+	sleep $[(($RANDOM*$RANDOM)%<%= cron_randomdelay %>)+1]
+fi
 
 cd '<%= maildir %>'
 stubDir='<%= stubdir %>'
@@ -29,7 +31,8 @@ delete = true" > "$stubDir/.getmailrc"
 echo "mailbox {
 	mailbox-pattern \"maildir://$stubDir/<%= inbox_folder %>\";
 }" > "$stubDir/.maidag"
-cat '<%= maildir %>/.sieve' | sed "s%fileinto \"%fileinto \"maildir://$stubDir/.<%= inbox_folder %>.directory/%gi" > "$stubDir/.sieve"
+# Stupid lack of lookaheads
+cat '<%= maildir %>/.sieve' | sed -r "s#fileinto \"([^m]|m[^a]|ma[^i]|mai[^l]|mail[^d]|maild[^i]|maildi[^r]|maildir[^:]|maildir:[^/]|maildir:/[^/])#fileinto \"maildir://$stubDir/.<%= inbox_folder %>.directory/\\1#gi" > "$stubDir/.sieve"
 set +e
 <% if torify %>torsocks <% end %>getmail --rcfile="$stubDir/.getmailrc"
 exitCode="$?"
