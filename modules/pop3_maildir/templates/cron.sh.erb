@@ -24,21 +24,22 @@ password = <%= pop3_password %>
 [destination]
 type = MDA_external
 path = /usr/sbin/maidag
-arguments = (\"--rcfile=$stubDir/.maidag\", \"--from\", \"%(sender)\", \"-s\", \"$stubDir/.sieve\")
+arguments = (\"--rcfile=$stubDir/.maidag.tmp\", \"--from\", \"%(sender)\", \"-s\", \"$stubDir/.sieve.tmp\")
 
 [options]
-delete = true" > "$stubDir/.getmailrc"
+delete = true" > "$stubDir/.getmailrc.tmp"
 echo "mailbox {
 	mailbox-pattern \"maildir://$stubDir/<%= inbox_folder %>\";
-}" > "$stubDir/.maidag"
+}" > "$stubDir/.maidag.tmp"
 # Stupid lack of lookaheads
-cat '<%= maildir %>/.sieve' | sed -r "s#fileinto \"([^m]|m[^a]|ma[^i]|mai[^l]|mail[^d]|maild[^i]|maildi[^r]|maildir[^:]|maildir:[^/]|maildir:/[^/])#fileinto \"maildir://$stubDir/.<%= inbox_folder %>.directory/\\1#gi" > "$stubDir/.sieve"
+cat '<%= maildir %>/.sieve' | sed -r "s#fileinto \"([^m]|m[^a]|ma[^i]|mai[^l]|mail[^d]|maild[^i]|maildi[^r]|maildir[^:]|maildir:[^/]|maildir:/[^/])#fileinto \"maildir://$stubDir/.<%= inbox_folder %>.directory/\\1#gi" > "$stubDir/.sieve.tmp"
 set +e
-<% if torify %>torsocks <% end %>getmail --rcfile="$stubDir/.getmailrc"
+<% if torify %>torsocks <% end %>getmail --rcfile="$stubDir/.getmailrc.tmp"
 exitCode="$?"
 set -e
 sudo /usr/bin/.restore-stub-dir "$stubDir"
 chmod -R 700 "$stubDir"
+rm -f "$stubDir/.getmailrc.tmp" "$stubDir/.maidag.tmp" "$stubDir/.sieve.tmp"
 rsync -r "$stubDir/" '<%= maildir %>'
 rm -rf "$stubDir"
 exit "$exitCode"
