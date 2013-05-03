@@ -1,13 +1,13 @@
 [cache]
-DisconnectedModeEnabled = <%= disconnectenabled %>
+DisconnectedModeEnabled = <%= @disconnectenabled %>
 
 [idle]
-IdleRidPath = <%= inbox %>,imap://<%= actualusername %>@<%= actualserver %>/
+IdleRidPath = <%= @inbox %>,imap://<%= @actualusername %>@<%= @actualserver %>/
 
 [network]
-ImapServer = <%= actualserver %>
-SubscriptionEnabled = <%= subscriptionenabled %>
-UserName = <%= actualusername %>
+ImapServer = <%= @actualserver %>
+SubscriptionEnabled = <%= @subscriptionenabled %>
+UserName = <%= @actualusername %>
 
 [siever]
-SieveSupport = <%= sievesupport %>
+SieveSupport = <%= @sievesupport %>

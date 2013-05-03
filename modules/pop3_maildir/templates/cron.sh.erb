@@ -3,11 +3,11 @@
 set -e
 
 if [ "$#" -eq 0 ]; then
-	sleep $[(($RANDOM*$RANDOM)%<%= cron_randomdelay %>)+1]
+	sleep $[(($RANDOM*$RANDOM)%<%= @cron_randomdelay %>)+1]
 fi
 
-cd '<%= maildir %>'
-stubDir='<%= stubdir %>'
+cd '<%= @maildir %>'
+stubDir='<%= @stubdir %>'
 stubDirExtension="getmail-$RANDOM-$RANDOM-$RANDOM"
 stubDir="$stubDir/$stubDirExtension"
 mkdir -p "$stubDir"
@@ -17,9 +17,9 @@ while IFS= read -d $'\0' -r dir; do
 done < <(find -type d -print0)
 echo "[retriever]
 type = SimplePOP3SSLRetriever
-server = <%= pop3_server %>
-username = <%= pop3_user %>
-password = <%= pop3_password %>
+server = <%= @pop3_server %>
+username = <%= @pop3_user %>
+password = <%= @pop3_password %>
 
 [destination]
 type = MDA_external
@@ -29,17 +29,17 @@ arguments = (\"--rcfile=$stubDir/.maidag.tmp\", \"--from\", \"%(sender)\", \"-s\
 [options]
 delete = true" > "$stubDir/.getmailrc.tmp"
 echo "mailbox {
-	mailbox-pattern \"maildir://$stubDir/<%= inbox_folder %>\";
+	mailbox-pattern \"maildir://$stubDir/<%= @inbox_folder %>\";
 }" > "$stubDir/.maidag.tmp"
 # Stupid lack of lookaheads
-cat '<%= maildir %>/.sieve' | sed -r "s#fileinto \"([^m]|m[^a]|ma[^i]|mai[^l]|mail[^d]|maild[^i]|maildi[^r]|maildir[^:]|maildir:[^/]|maildir:/[^/])#fileinto \"maildir://$stubDir/.<%= inbox_folder %>.directory/\\1#gi" > "$stubDir/.sieve.tmp"
+cat '<%= @maildir %>/.sieve' | sed -r "s#fileinto \"([^m]|m[^a]|ma[^i]|mai[^l]|mail[^d]|maild[^i]|maildi[^r]|maildir[^:]|maildir:[^/]|maildir:/[^/])#fileinto \"maildir://$stubDir/.<%= @inbox_folder %>.directory/\\1#gi" > "$stubDir/.sieve.tmp"
 set +e
-<% if torify %>torsocks <% end %>getmail --rcfile="$stubDir/.getmailrc.tmp"
+<% if @torify %>torsocks <% end %>getmail --rcfile="$stubDir/.getmailrc.tmp"
 exitCode="$?"
 set -e
 sudo /usr/bin/.restore-stub-dir "$stubDir"
 chmod -R 700 "$stubDir"
 rm -f "$stubDir/.getmailrc.tmp" "$stubDir/.maidag.tmp" "$stubDir/.sieve.tmp"
-rsync -r "$stubDir/" '<%= maildir %>'
+rsync -r "$stubDir/" '<%= @maildir %>'
 rm -rf "$stubDir"
 exit "$exitCode"
