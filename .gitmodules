@@ -7,3 +7,6 @@
 [submodule "modules/puppetlabs-stdlib"]
 	path = modules/puppetlabs-stdlib
 	url = https://github.com/puppetlabs/puppetlabs-stdlib.git
+[submodule "modules/desktop/files/xorg/xcompose"]
+	path = modules/desktop/files/xorg/xcompose
+	url = https://github.com/kragen/xcompose.git
