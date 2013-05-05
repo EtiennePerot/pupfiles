@@ -4,6 +4,6 @@ class synergy::client (
 ) {
 	require synergy
 	kde_autostart {'synergyc.sh':
-		command => ['synergyc', '--daemon', '--restart', '--no-tray', '--name', $server, $node]
+		command => ['synergyc', '--daemon', '--restart', '--no-tray', '--name', $node, $server]
 	}
 }
