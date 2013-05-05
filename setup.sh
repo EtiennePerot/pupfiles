@@ -27,6 +27,7 @@ if ! pacman -Q puppet &> /dev/null; then
 		echo >> /etc/pacman.conf # Empty line
 		echo '[archlinuxfr]' >> /etc/pacman.conf
 		echo 'Server = http://repo.archlinux.fr/$arch' >> /etc/pacman.conf
+		echo 'SigLevel = Optional' >> /etc/pacman.conf
 	fi
 	if ! pacman -Q yaourt &> /dev/null; then
 		pacman -Sy --noconfirm yaourt || exit 1
