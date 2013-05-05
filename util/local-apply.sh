@@ -10,7 +10,7 @@ fi
 export PUP_JUST_SET_VARIABLES='true'
 source "$scriptDir/setup.sh"
 unset PUP_JUST_SET_VARIABLES
-chosenManifest=$(hostname)
+chosenManifest=$(hostname | tr '[:upper:]' '[:lower:]')
 if [ ! -f "manifests/$chosenManifest.pp" ]; then
 	if [ ! -f this.manifest ]; then
 		echo 'Cannot find this.manifest. Make sure everything is set up properly first.' >&2
