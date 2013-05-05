@@ -71,6 +71,7 @@ Quite a few things, depending on how much you want it to do. Here's some of it
     * KDiff3, with associated configuration
     * Ark, with associated configuration
     * MPlayer and SMPlayer, with associated configuration
+    * [tunnels], with associated configuration
 * Set up Firefox:
     * Set up lots of Firefox preferences on default profile
     * Preconfigure some extensions that Firefox Sync will autodownload on start
@@ -155,6 +156,7 @@ Licensing
 This repository is licensed under a [CC BY-SA 3.0 license]. Check the
 `LICENSE` file for more information.
 
-[CC BY-SA 3.0 license]: https://creativecommons.org/licenses/by-sa/3.0/
-[scrypt]: https://www.tarsnap.com/scrypt.html
+[tunnels]: https://github.com/EtiennePerot/tunnels
 [xinetd]: http://www.xinetd.org/
+[scrypt]: https://www.tarsnap.com/scrypt.html
+[CC BY-SA 3.0 license]: https://creativecommons.org/licenses/by-sa/3.0/

@@ -11,4 +11,5 @@ class base::networking {
 	package {'tcpdump':}
 	include private::base::networking::hosts
 	include private::base::networking::udevrenamedevices
+	include private::base::networking::tunnels
 }

@@ -3,6 +3,8 @@
 ignoredPatterns=(
 	'private/modules/private/templates/console/gpg/*.asc'
 	'private/modules/private/files/desktop/wallpapers/*'
+	'private/modules/private/templates/desktop/apps/kmail2/*'
+	'private/modules/private/files/base/networking/tunnels/*.yml'
 )
 
 scriptDir=$(dirname "$BASH_SOURCE")
