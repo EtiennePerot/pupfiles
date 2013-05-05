@@ -2,7 +2,7 @@ class desktop::environment::kde::themes::caledonia {
 	aur_package {'plasma-theme-caledonia':}
 	aur_package {'kdm-theme-caledonia':}
 	aur_package {'ksplash-caledonia':}
-	aur_package {'caledonia-icons':}
+	aur_package {'cld-icons':}
 	kde_rc::merge {'special:Add caledonia theme options to kdmrc':
 		filename => 'kdmrc',
 		absolutepath => '/usr/share/config/kdm/kdmrc',
