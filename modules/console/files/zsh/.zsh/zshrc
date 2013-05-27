@@ -2,6 +2,7 @@
 
 ZSHC="$(dirname "${BASH_SOURCE:-$0}")"
 ZSH_CUSTOM="$ZSHC/custom"
+DISABLE_AUTO_UPDATE=true
 
 COMPLETION_WAITING_DOTS=true
 plugins=(archlinux cdenv git mercurial ssh-gpg-monkeysphere-agents svn undistract-me)
