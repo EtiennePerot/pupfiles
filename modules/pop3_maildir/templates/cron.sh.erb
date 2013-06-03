@@ -23,7 +23,7 @@ password = <%= @pop3_password %>
 
 [destination]
 type = MDA_external
-path = /usr/sbin/maidag
+path = $(which maidag)
 arguments = (\"--rcfile=$stubDir/.maidag.tmp\", \"--from\", \"%(sender)\", \"-s\", \"$stubDir/.sieve\")
 
 [options]
