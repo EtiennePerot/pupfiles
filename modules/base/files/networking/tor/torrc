@@ -1,0 +1,41 @@
+# ----- Main options -----
+DataDirectory /var/lib/tor
+RunAsDaemon 1
+AvoidDiskWrites 1
+User tor
+
+# ----- DNS/Transparent proxy options -----
+AutomapHostsOnResolve 1
+AutomapHostsSuffixes .onion
+VirtualAddrNetwork 127.42.0.0/16
+AllowDotExit 0
+
+# ----- Ports -----
+
+# - DNSPort: 5353
+DNSPort 127.0.0.1:5353
+
+# - SOCKS ports with varying levels of isolation
+# ---- Low isolation: 9050 - 9054
+# -------- Low isolation port 1: 9050
+SocksPort 127.0.0.1:9050 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol
+# -------- Low isolation port 2: 9051
+SocksPort 127.0.0.1:9051 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol
+# -------- Low isolation port 3: 9052
+SocksPort 127.0.0.1:9052 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol
+# -------- Low isolation port 4: 9053
+SocksPort 127.0.0.1:9053 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol
+# -------- Low isolation port 5: 9054
+SocksPort 127.0.0.1:9054 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol
+
+# ---- Port-based isolation: 9055 - 9056
+# -------- Port-based isolation port 1: 9055
+SocksPort 127.0.0.1:9055 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol IsolateDestPort
+# -------- Port-based isolation port 2: 9056
+SocksPort 127.0.0.1:9056 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol IsolateDestPort
+
+# ---- Complete isolation: 9057
+SocksPort 127.0.0.1:9057 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol IsolateDestAddr IsolateDestPort
+
+# - TransPort: 9058
+TransPort 127.0.0.1:9058

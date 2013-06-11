@@ -34,6 +34,7 @@ Quite a few things, depending on how much you want it to do. Here's some of it
 * Limit systemd journal to a more reasonable size (50MB)
 * Enable readahead replay and data collection
 * Add my favorite fonts
+* Set up `pacman`
 * Install basic console packages (`screen`, `most`, `htop`, etc)
 * Configure SSH and populate its aliases
 * Set up Monkeysphere (keys and SSH config), with automatic identity loading
@@ -79,7 +80,8 @@ Quite a few things, depending on how much you want it to do. Here's some of it
     * Set up symlinks to encfs synchronized drive to synchronize things that
       Firefox Sync cannot synchronize by itself
     * Set up fancy newtab/home pages
-* Install Tor browser bundle
+* Install Tor and the Tor browser bundle
+* Configure some applications to use Tor for networking
 
 Usage
 -----
