@@ -15,4 +15,19 @@ class bin_wrapper::base {
 		mode => 0755,
 		require => Package['bash']
 	}
+	file {'/etc/profile.d/bin-wrappers.sh':
+		source => 'puppet:///modules/bin_wrapper/bin-wrappers.env.sh',
+		owner => 'root',
+		group => 'root',
+		mode => 0755,
+		require => Package['bash']
+	}
+	if inline_template('<%= File.exists?("/etc/kde/env") %>') == 'true' {
+		file {'/etc/kde/env/bin-wrappers.sh':
+			source => 'puppet:///modules/bin_wrapper/bin-wrappers.env.sh',
+			owner => 'root',
+			group => 'root',
+			mode => 0755
+		}
+	}
 }
