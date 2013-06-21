@@ -7,6 +7,9 @@ class console::gpg {
 		source => 'console/gpg',
 		require => File['/etc/ssl/certs/mayfirst-peoplelink.crt']
 	}
+	bin_wrapper::torify {'gpg':
+		torsocks_profile => '/etc/torsocks.d/gnupg.conf'
+	}
 
 	include private::console::gpg
 	# I do not want to reveal my list of GPG keys.

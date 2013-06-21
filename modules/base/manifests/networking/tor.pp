@@ -15,6 +15,8 @@ class base::networking::tor {
 		mode => 0644,
 		source => 'puppet:///modules/base/networking/tor/torsocks.d',
 		recurse => true,
+		force => true,
+		purge => true,
 		require => Package['torsocks']
 	}
 }

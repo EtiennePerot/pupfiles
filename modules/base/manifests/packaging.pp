@@ -17,12 +17,12 @@ class base::packaging {
 		require => File['/etc/pacman.d/pupfiles-options.conf']
 	}
 	bin_wrapper::torify {'pacman':
-		torsocks_profile => '/etc/torsocks.d/9051.conf'
+		torsocks_profile => '/etc/torsocks.d/packagemanagement.conf'
 	}
 	bin_wrapper::torify {'pacman-key':
-		torsocks_profile => '/etc/torsocks.d/9051.conf'
+		torsocks_profile => '/etc/torsocks.d/packagemanagement.conf'
 	}
 	bin_wrapper::torify {'yaourt':
-		torsocks_profile => '/etc/torsocks.d/9051.conf'
+		torsocks_profile => '/etc/torsocks.d/packagemanagement.conf'
 	}
 }
