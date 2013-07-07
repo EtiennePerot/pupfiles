@@ -14,7 +14,7 @@ What does it do?
 ----------------
 
 Quite a few things, depending on how much you want it to do. Here's some of it
-(maye not be up-to-date):
+(may not be up-to-date):
 
 * Set up Yaourt and its repository
 * Set up ZSH as default shell, with oh-my-zsh and my personal theme and
