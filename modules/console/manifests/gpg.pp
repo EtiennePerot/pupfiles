@@ -10,6 +10,13 @@ class console::gpg {
 	bin_wrapper::torify {'gpg':
 		torsocks_profile => '/etc/torsocks.d/gnupg.conf'
 	}
+	bin_wrapper::torify {'gpg2':
+		torsocks_profile => '/etc/torsocks.d/gnupg.conf'
+	}
+	bin_wrapper::torify {'gpg-agent':
+		torsocks_profile => '/etc/torsocks.d/gnupg.conf'
+	}
+	include console::gpg::parcimonie
 
 	include private::console::gpg
 	# I do not want to reveal my list of GPG keys.
