@@ -1,6 +1,6 @@
 [X-*-Greeter]
 UseTheme=true
-Theme=/usr/share/apps/kdm/themes/caledonia
+Theme=/usr/share/apps/kdm/themes/Caledonia-KDM
 GUIStyle=
 ColorScheme=
 LogoArea=Logo
