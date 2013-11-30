@@ -1,0 +1,61 @@
+# ----- Main options -----
+DataDirectory /var/lib/tor
+RunAsDaemon 1
+AvoidDiskWrites 1
+User tor
+
+# ----- DNS/Transparent proxy options -----
+AutomapHostsOnResolve 1
+AutomapHostsSuffixes .onion
+VirtualAddrNetwork 127.42.0.0/16
+AllowDotExit 0
+
+# ----- Ports -----
+
+# - DNSPort: 5353
+DNSPort 127.0.0.1:5353
+
+# - SOCKS ports with varying levels of isolation
+# ---- Low isolation: 9050 - 9054
+# -------- Low isolation port 1 (9050): Misc usage
+SocksPort 127.0.0.1:9050 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol
+# -------- Low isolation port 2 (9051): Package management
+SocksPort 127.0.0.1:9051 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol
+# -------- Low isolation port 3 (9052): GnuPG
+SocksPort 127.0.0.1:9052 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol
+# -------- Low isolation port 4 (9053): Bitcoin
+SocksPort 127.0.0.1:9053 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol
+# -------- Low isolation port 5 (9054): Litecoin
+SocksPort 127.0.0.1:9054 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol
+# -------- Low isolation port 6 (9055): Bitmessage
+SocksPort 127.0.0.1:9055 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol
+# -------- Low isolation port 7 (9056): Reserved
+SocksPort 127.0.0.1:9056 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol
+# -------- Low isolation port 8 (9057): Reserved
+SocksPort 127.0.0.1:9057 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol
+# -------- Low isolation port 9 (9058): Reserved
+SocksPort 127.0.0.1:9058 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol
+# -------- Low isolation port 10 (9059): Reserved
+SocksPort 127.0.0.1:9059 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol
+
+# ---- Port-based isolation: 9060 - 9062
+# -------- Port-based isolation port 1 (9060): Tunnels
+SocksPort 127.0.0.1:9060 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol IsolateDestPort
+# -------- Port-based isolation port 2 (9061): Reserved
+SocksPort 127.0.0.1:9061 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol IsolateDestPort
+# -------- Port-based isolation port 2 (9062): Reserved
+SocksPort 127.0.0.1:9062 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol IsolateDestPort
+
+# ---- Complete isolation: 9065 - 9067
+# -------- Complete isolation (9065): SSH
+SocksPort 127.0.0.1:9065 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol IsolateDestAddr IsolateDestPort
+# -------- Complete isolation (9066): Hidden services
+SocksPort 127.0.0.1:9066 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol IsolateDestAddr IsolateDestPort
+# -------- Complete isolation (9067): Reserved
+SocksPort 127.0.0.1:9067 IsolateClientAddr IsolateSOCKSAuth IsolateClientProtocol IsolateDestAddr IsolateDestPort
+
+# - TransPort: 9070
+TransPort 127.0.0.1:9070
+
+# ----- Hidden services -----
+<%= scope.function_template(['private/base/networking/tor/torrc.erb']) %>

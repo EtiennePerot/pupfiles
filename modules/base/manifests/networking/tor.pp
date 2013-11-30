@@ -1,7 +1,7 @@
 class base::networking::tor {
 	package {'tor':}
 	file {'/etc/tor/torrc':
-		source => 'puppet:///modules/base/networking/tor/torrc',
+		content => template('base/networking/tor/torrc.erb'),
 		require => Package['tor']
 	}
 	systemd_service {'tor':
