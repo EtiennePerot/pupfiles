@@ -34,6 +34,11 @@ define pop3_maildir (
 	pop3_maildir::maildir {"$maildir/$sent_folder":
 		owner => $localuser
 	}
+	file {"$maildir/.getmail":
+		ensure => directory,
+		owner => $localuser,
+		mode => 0600
+	}
 	file {"$maildir/.sieve":
 		owner => $localuser,
 		mode => 0600,

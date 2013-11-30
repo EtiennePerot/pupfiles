@@ -34,7 +34,7 @@ echo "mailbox {
 # Stupid lack of lookaheads
 cat '<%= @maildir %>/.sieve' | sed -r "s#fileinto \"([^m]|m[^a]|ma[^i]|mai[^l]|mail[^d]|maild[^i]|maildi[^r]|maildir[^:]|maildir:[^/]|maildir:/[^/])#fileinto \"maildir://$stubDir/.<%= @inbox_folder %>.directory/\\1#gi" > "$stubDir/.sieve"
 set +e
-<% if @torify %>torsocks <% end %>getmail --rcfile="$stubDir/.getmailrc.tmp"
+<% if @torify %>torsocks <% end %>getmail --getmaildir="$stubDir/.getmail" --rcfile="$stubDir/.getmailrc.tmp"
 exitCode="$?"
 set -e
 sudo /usr/bin/.restore-stub-dir "$stubDir"
