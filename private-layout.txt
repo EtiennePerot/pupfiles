@@ -18,6 +18,7 @@ private/modules/private/manifests/console/gpg.pp
 private/modules/private/manifests/desktop/apps/kmail2.pp
 private/modules/private/manifests/init.pp
 private/modules/private/templates/base/etienne/password
+private/modules/private/templates/base/networking/tor/torrc.erb
 private/modules/private/templates/base/root/password
 private/modules/private/templates/console/gpg/*.asc
 private/modules/private/templates/console/ssh/host_aliases.erb
