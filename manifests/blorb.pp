@@ -5,7 +5,8 @@ class {'console':}
 class {'desktop':
 	graphics_drivers => 'catalyst',
 	games => true,
-	dpi => 102
+	dpi => 102,
+	kde_compositing => 'XRender'
 }
 
 network_interface {$ethernet_macaddress:

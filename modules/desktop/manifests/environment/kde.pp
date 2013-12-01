@@ -1,6 +1,7 @@
 class desktop::environment::kde (
 	$dpi,
-	$laptop
+	$laptop,
+	$compositing
 ) {
 	# Replace akonadi's mysql with mariadb
 	# To do this properly we should install mariadb before installing KDE,
@@ -39,7 +40,9 @@ class desktop::environment::kde (
 	include desktop::environment::kde::klipper
 	include desktop::environment::kde::kmix
 	include desktop::environment::kde::kwallet
-	include desktop::environment::kde::kwin
+	class {'desktop::environment::kde::kwin':
+		compositing => $compositing
+	}
 	include desktop::environment::kde::themes
 	include desktop::environment::kde::systemsettings
 	include desktop::environment::kde::krunner

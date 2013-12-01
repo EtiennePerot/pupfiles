@@ -1,6 +1,5 @@
 [Compositing]
 AnimationSpeed=2
-Backend=OpenGL
 Enabled=true
 GLLegacy=false
 GLTextureFilter=0
