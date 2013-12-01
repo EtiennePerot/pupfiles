@@ -1,7 +1,6 @@
 class browser::firefox::dotsync (
 	$profile = 'Default',
 ) {
-	require desktop::sync
 	require browser::firefox::profile
 	enduser_file {".mozilla/firefox/$profile/HTTPSEverywhereUserRules":
 		ensure => link,

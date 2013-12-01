@@ -1,0 +1,14 @@
+#!/bin/bash
+
+DotSync='<%= @dotsync_path %>/encfs'
+DotSyncDecrypt='<%= @dotsyncdecrypt_path %>'
+
+if systemctl status autofs &>/dev/null; then
+	systemctl start autofs
+fi
+
+if [ -f /var/lib/pupfiles/private/modules/private/files/desktop/sync/encfs.key -a -f "$DotSync/.encfs6.xml" -a ! -e "$DotSyncDecrypt/appdata" ]; then
+	exec encfs --public -o umask=077 --stdinpass "$DotSync" "$DotSyncDecrypt" < /var/lib/pupfiles/private/modules/private/files/desktop/sync/encfs.key
+else
+	exit 1
+fi

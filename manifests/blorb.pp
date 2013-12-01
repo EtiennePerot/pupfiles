@@ -6,6 +6,7 @@ class {'desktop':
 	graphics_drivers => 'catalyst',
 	games => true,
 	dpi => 102,
+	dotsync => '/media/EncData/DotSync',
 	kde_compositing => 'XRender'
 }
 
