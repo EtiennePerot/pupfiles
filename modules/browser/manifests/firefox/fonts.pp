@@ -15,4 +15,13 @@ class browser::firefox::fonts {
 	firefox_pref {'font.name.monospace.x-western':
 		value => 'Inconsolata Plus 0'
 	}
+	firefox_pref {'font.name.serif.ja':
+		value => 'Meiryo'
+	}
+	firefox_pref {'font.name.sans-serif.ja':
+		value => 'Meiryo'
+	}
+	firefox_pref {'font.name.monospace.ja':
+		value => 'Meiryo'
+	}
 }

@@ -5,6 +5,8 @@ private/modules/private/files/console/ssh/.monkeysphere/identities/etienne (at) 
 private/modules/private/files/desktop/apps/kmail2/emaildefaults
 private/modules/private/files/desktop/apps/kmail2/emailidentities
 private/modules/private/files/desktop/apps/kmail2/mailtransports
+private/modules/private/files/desktop/fonts/meiryo/Meiryob.ttc
+private/modules/private/files/desktop/fonts/meiryo/Meiryo.ttc
 private/modules/private/files/desktop/fonts/stencil/Stencil.ttf
 private/modules/private/files/desktop/fonts/tf2/TF2Build.ttf
 private/modules/private/files/desktop/fonts/tf2/TF2secondary.ttf

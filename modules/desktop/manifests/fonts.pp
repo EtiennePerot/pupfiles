@@ -35,4 +35,12 @@ class desktop::fonts {
 	font {'TF2secondary.ttf':
 		source => 'desktop/fonts/tf2'
 	}
+
+	# Meiryo
+	font {'Meiryo.ttc':
+		source => 'desktop/fonts/meiryo'
+	}
+	font {'Meiryob.ttc':
+		source => 'desktop/fonts/meiryo'
+	}
 }
