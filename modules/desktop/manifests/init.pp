@@ -47,6 +47,7 @@ class desktop (
 	}
 	browser {'tor-browser':} # No machine should not have no way of anonymously communicating with the outside
 	include desktop::networkmanager
+	include desktop::ime
 	if $apps {
 		include desktop::apps
 	}
